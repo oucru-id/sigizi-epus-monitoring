@@ -1,5 +1,4 @@
-# R application modules
+# R rendering helpers
 
-R helpers and Shiny modules will be added here after the BigQuery monitoring
-view contracts are defined.
-
+R helpers used during Quarto rendering live here. BigQuery access helpers will
+be added only after the aggregate monitoring-view contracts are defined.

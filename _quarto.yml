@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - anc.qmd
+    - inc.qmd
+    - pnc.qmd
+    - source-quality.qmd
+
+website:
+  title: "SIGIZI–EPUS Monitoring"
+  site-url: "https://oucru-id.github.io/sigizi-epus-monitoring/"
+  repo-url: "https://github.com/oucru-id/sigizi-epus-monitoring"
+  repo-actions: [source, issue]
+  navbar:
+    left:
+      - href: index.qmd
+        text: Overview
+      - href: anc.qmd
+        text: ANC
+      - href: inc.qmd
+        text: INC
+      - href: pnc.qmd
+        text: PNC
+      - href: source-quality.qmd
+        text: Source quality
+  page-footer:
+    left: "Aggregate monitoring only — no patient identifiers"
+    right: "Data definitions are governed by the birth-outcome pipeline"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    link-external-newwindow: true
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
+  freeze: false
+
+lang: en
+

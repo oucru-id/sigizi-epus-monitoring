@@ -1,0 +1,55 @@
+---
+title: "Overview"
+description: "SIGIZI and EPUS ANC, INC, and PNC monitoring"
+---
+
+```{r}
+source("R/render_context.R")
+context <- monitoring_context()
+```
+
+::: {.status-banner}
+**Initial structure:** the website is not yet connected to BigQuery and no
+operational counts are displayed.
+:::
+
+## Monitoring scope
+
+::: {.metric-grid}
+::: {.metric-card}
+### ANC
+
+Antenatal visit volume, canonical encounters, K1–K6 coverage, and source
+overlap.
+:::
+
+::: {.metric-card}
+### INC
+
+Intranatal and delivery recording coverage, with pregnancy and baby-record
+denominators kept separate.
+:::
+
+::: {.metric-card}
+### PNC
+
+Postnatal visit volume, KF1–KF4 coverage, and linkage completeness.
+:::
+:::
+
+## Data boundary
+
+This site will read approved aggregate monitoring views derived from
+`r context$gcp_project`.`r context$upstream_dataset`. Cleaning, matching,
+deduplication, canonical pregnancy construction, and outcome definitions remain
+authoritative in the `birth-outcome` pipeline.
+
+| Setting | Value |
+|---|---|
+| BigQuery project | `r context$gcp_project` |
+| Upstream dataset | `r context$upstream_dataset` |
+| Proposed monitoring dataset | `r context$monitoring_dataset` |
+| BigQuery location | `r context$bigquery_location` |
+| Publication mode | `r context$publication_mode` |
+| Page rendered | `r context$rendered_at` |
+

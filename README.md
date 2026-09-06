@@ -1,13 +1,13 @@
 # SIGIZI–EPUS Monitoring
 
-R Shiny monitoring dashboard for antenatal care (ANC), intranatal care
+Static Quarto/R monitoring website for antenatal care (ANC), intranatal care
 (INC), and postnatal care (PNC) recorded across SIGIZI and ePuskesmas
 (EPUS) sources in Lombok Barat.
 
 ## Status
 
-Initial repository scaffold. The dashboard does not yet connect to BigQuery
-or expose operational data.
+Initial Quarto website scaffold. The website renders successfully without a
+BigQuery connection and does not yet expose operational data.
 
 ## Data boundary
 
@@ -33,23 +33,43 @@ name, permissions, and live source contracts have been approved.
 - PNC visits and KF1–KF4 coverage
 - SIGIZI versus EPUS source coverage
 - Aggregate data-quality indicators
-- Privacy-gated operational worklists, if authorized
+- Aggregate data-contract and reconciliation checks
 
 Raw source-record counts, canonical visit counts, unique pregnancy counts, and
-delivery/baby counts will remain separate measures. The Shiny application will
-query curated views rather than reproduce clinical matching logic in R.
+delivery/baby counts will remain separate measures. R will query curated views
+during rendering rather than reproduce clinical matching logic.
 
-## Run locally
+## Render locally
 
-Prerequisites will be finalized with the BigQuery data contract. For the
-placeholder application, install Shiny and run:
+Prerequisites:
 
-```r
-install.packages("shiny")
-shiny::runApp()
+- R with `knitr` and `rmarkdown`
+- Quarto CLI
+
+From PowerShell in the repository root:
+
+```powershell
+& "C:\Program Files\RStudio\resources\app\bin\quarto\bin\quarto.exe" render
 ```
 
-The default local address is printed by Shiny when the application starts.
+Rendered files are written to `_site/`. Preview locally with:
+
+```powershell
+& "C:\Program Files\RStudio\resources\app\bin\quarto\bin\quarto.exe" preview
+```
+
+## GitHub Pages
+
+- `.github/workflows/render-check.yml` verifies the site on pushes and pull
+  requests without publishing it.
+- `.github/workflows/publish.yml` publishes to the `gh-pages` branch only when
+  manually started from the GitHub Actions page.
+- Publishing must remain disabled until the intended audience and GitHub Pages
+  visibility have been reviewed.
+
+The expected project-site URL, after publication is enabled, is:
+
+`https://oucru-id.github.io/sigizi-epus-monitoring/`
 
 ## Privacy and security
 
@@ -57,5 +77,5 @@ The default local address is printed by Shiny when the application starts.
 - Never commit credentials, service-account keys, row-level exports, or
   identifiable screenshots.
 - Do not log patient identifiers.
-- Generate record-level CSV files only through an explicit, authorized download.
-
+- Do not publish record-level worklists or downloadable row-level extracts.
+- Treat rendered HTML and JavaScript as downloadable data.

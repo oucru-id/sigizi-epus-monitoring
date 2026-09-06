@@ -1,0 +1,23 @@
+---
+title: "INC monitoring"
+description: "Intranatal care and delivery recording across SIGIZI and EPUS"
+---
+
+::: {.status-banner}
+**Data pending:** INC aggregate contracts must be verified before counts are
+published.
+:::
+
+## Planned measures
+
+- INC and delivery source-record volume by date and facility
+- Pregnancies with delivery evidence
+- Delivery events and baby records as separate measures
+- SIGIZI-only, EPUS-only, and cross-source recording coverage
+- Missing delivery date, facility, outcome, and linkage indicators
+
+## Analytical rule
+
+A pregnancy, a delivery event, and a baby record are different grains. Counts
+and percentages will identify their denominator explicitly.
+

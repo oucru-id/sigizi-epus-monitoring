@@ -1,0 +1,24 @@
+---
+title: "ANC monitoring"
+description: "Antenatal care monitoring across SIGIZI and EPUS"
+---
+
+::: {.status-banner}
+**Data pending:** ANC aggregate contracts must be verified before counts are
+published.
+:::
+
+## Planned measures
+
+- SIGIZI and EPUS source-record volume by date and facility
+- Canonical ANC encounters without EPUS cross-source double-counting
+- K1–K6 coverage using pregnancy-level denominators
+- First and latest ANC dates
+- Same-day source overlap and unresolved facility discrepancies
+- Missing visit date, facility, or pregnancy-assignment indicators
+
+## Analytical rule
+
+Raw `EPUS_ANC` and `EPUS_KUNJUNGAN_IBU_HAMIL` rows are source-volume
+measures. They must not be added together to represent unique ANC visits.
+

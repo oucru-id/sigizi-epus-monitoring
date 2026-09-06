@@ -3,6 +3,10 @@
 .RData
 .Ruserdata
 .Renviron
+.quarto/
+_site/
+*_cache/
+*_files/
 renv/library/
 renv/staging/
 *.log
@@ -11,3 +15,4 @@ renv/staging/
 *.rds
 *.RDS
 
+/.quarto/

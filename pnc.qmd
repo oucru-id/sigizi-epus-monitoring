@@ -1,0 +1,23 @@
+---
+title: "PNC monitoring"
+description: "Postnatal care monitoring across SIGIZI and EPUS"
+---
+
+::: {.status-banner}
+**Data pending:** PNC dates and visit-label contracts must be verified before
+counts are published.
+:::
+
+## Planned measures
+
+- PNC source-record volume by date and facility
+- PNC visit counts and KF1–KF4 coverage
+- First and latest PNC dates
+- Pregnancy and delivery linkage completeness
+- SIGIZI `KOHORT_NIFAS` and EPUS PNC source availability
+
+## Analytical rule
+
+SIGIZI PNC details require a curated adapter with an explicit visit date and
+grain. The public website will not extract clinical fields from source JSON.
+

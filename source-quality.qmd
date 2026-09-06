@@ -1,0 +1,29 @@
+---
+title: "Source quality"
+description: "Aggregate freshness, completeness, and reconciliation checks"
+---
+
+```{r}
+source("R/privacy.R")
+```
+
+::: {.status-banner}
+**Data pending:** only approved aggregate quality indicators will be rendered.
+:::
+
+## Planned checks
+
+- Latest available record date and ingestion timestamp by source
+- Daily record-volume changes
+- Missing service date and facility percentages
+- Invalid or missing identifier counts, reported only as aggregates
+- Duplicate-group and unresolved-assignment counts
+- Reconciliation between source, canonical-visit, pregnancy, delivery, and baby
+  grains
+
+## Publication guard
+
+Before any data frame is rendered publicly, its columns will pass
+`assert_public_columns()`. Names, NIKs, phone numbers, addresses, source JSON,
+and free text are prohibited from the static output.
+
