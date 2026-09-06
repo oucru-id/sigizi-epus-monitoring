@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "source-quality.html",
+    "href": "source-quality.html",
+    "title": "Source quality",
+    "section": "",
+    "text": "Data pending: only approved aggregate quality indicators will be rendered."
+  },
+  {
+    "objectID": "source-quality.html#planned-checks",
+    "href": "source-quality.html#planned-checks",
+    "title": "Source quality",
+    "section": "Planned checks",
+    "text": "Planned checks\n\nLatest available record date and ingestion timestamp by source\nDaily record-volume changes\nMissing service date and facility percentages\nInvalid or missing identifier counts, reported only as aggregates\nDuplicate-group and unresolved-assignment counts\nReconciliation between source, canonical-visit, pregnancy, delivery, and baby grains"
+  },
+  {
+    "objectID": "source-quality.html#publication-guard",
+    "href": "source-quality.html#publication-guard",
+    "title": "Source quality",
+    "section": "Publication guard",
+    "text": "Publication guard\nBefore any data frame is rendered publicly, its columns will pass assert_public_columns(). Names, NIKs, phone numbers, addresses, source JSON, and free text are prohibited from the static output."
+  },
+  {
+    "objectID": "inc.html",
+    "href": "inc.html",
+    "title": "INC monitoring",
+    "section": "",
+    "text": "Data pending: INC aggregate contracts must be verified before counts are published."
+  },
+  {
+    "objectID": "inc.html#planned-measures",
+    "href": "inc.html#planned-measures",
+    "title": "INC monitoring",
+    "section": "Planned measures",
+    "text": "Planned measures\n\nINC and delivery source-record volume by date and facility\nPregnancies with delivery evidence\nDelivery events and baby records as separate measures\nSIGIZI-only, EPUS-only, and cross-source recording coverage\nMissing delivery date, facility, outcome, and linkage indicators"
+  },
+  {
+    "objectID": "inc.html#analytical-rule",
+    "href": "inc.html#analytical-rule",
+    "title": "INC monitoring",
+    "section": "Analytical rule",
+    "text": "Analytical rule\nA pregnancy, a delivery event, and a baby record are different grains. Counts and percentages will identify their denominator explicitly."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Initial structure: the website is not yet connected to BigQuery and no operational counts are displayed."
+  },
+  {
+    "objectID": "index.html#monitoring-scope",
+    "href": "index.html#monitoring-scope",
+    "title": "Overview",
+    "section": "Monitoring scope",
+    "text": "Monitoring scope\n\n\nANC\nAntenatal visit volume, canonical encounters, K1–K6 coverage, and source overlap.\n\n\nINC\nIntranatal and delivery recording coverage, with pregnancy and baby-record denominators kept separate.\n\n\nPNC\nPostnatal visit volume, KF1–KF4 coverage, and linkage completeness."
+  },
+  {
+    "objectID": "index.html#data-boundary",
+    "href": "index.html#data-boundary",
+    "title": "Overview",
+    "section": "Data boundary",
+    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-06 22:20 WITA"
+  },
+  {
+    "objectID": "anc.html",
+    "href": "anc.html",
+    "title": "ANC monitoring",
+    "section": "",
+    "text": "Data pending: ANC aggregate contracts must be verified before counts are published."
+  },
+  {
+    "objectID": "anc.html#planned-measures",
+    "href": "anc.html#planned-measures",
+    "title": "ANC monitoring",
+    "section": "Planned measures",
+    "text": "Planned measures\n\nSIGIZI and EPUS source-record volume by date and facility\nCanonical ANC encounters without EPUS cross-source double-counting\nK1–K6 coverage using pregnancy-level denominators\nFirst and latest ANC dates\nSame-day source overlap and unresolved facility discrepancies\nMissing visit date, facility, or pregnancy-assignment indicators"
+  },
+  {
+    "objectID": "anc.html#analytical-rule",
+    "href": "anc.html#analytical-rule",
+    "title": "ANC monitoring",
+    "section": "Analytical rule",
+    "text": "Analytical rule\nRaw EPUS_ANC and EPUS_KUNJUNGAN_IBU_HAMIL rows are source-volume measures. They must not be added together to represent unique ANC visits."
+  },
+  {
+    "objectID": "pnc.html",
+    "href": "pnc.html",
+    "title": "PNC monitoring",
+    "section": "",
+    "text": "Data pending: PNC dates and visit-label contracts must be verified before counts are published."
+  },
+  {
+    "objectID": "pnc.html#planned-measures",
+    "href": "pnc.html#planned-measures",
+    "title": "PNC monitoring",
+    "section": "Planned measures",
+    "text": "Planned measures\n\nPNC source-record volume by date and facility\nPNC visit counts and KF1–KF4 coverage\nFirst and latest PNC dates\nPregnancy and delivery linkage completeness\nSIGIZI KOHORT_NIFAS and EPUS PNC source availability"
+  },
+  {
+    "objectID": "pnc.html#analytical-rule",
+    "href": "pnc.html#analytical-rule",
+    "title": "PNC monitoring",
+    "section": "Analytical rule",
+    "text": "Analytical rule\nSIGIZI PNC details require a curated adapter with an explicit visit date and grain. The public website will not extract clinical fields from source JSON."
+  }
+]

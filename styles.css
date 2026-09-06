@@ -1,0 +1,62 @@
+:root {
+  --monitor-navy: #17324d;
+  --monitor-blue: #2b6f9f;
+  --monitor-pale: #edf5fa;
+  --monitor-border: #c9d9e4;
+}
+
+.navbar {
+  background-color: var(--monitor-navy);
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link,
+.navbar .quarto-navbar-tools .quarto-navigation-tool {
+  color: #f7fbff;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: #9dd8ff;
+}
+
+.status-banner {
+  background: var(--monitor-pale);
+  border-left: 0.35rem solid var(--monitor-blue);
+  border-radius: 0.25rem;
+  margin: 0.5rem 0 1.5rem;
+  padding: 0.9rem 1rem;
+}
+
+.metric-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+  min-width: 0;
+}
+
+.metric-card {
+  border: 1px solid var(--monitor-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.15rem 0.4rem rgb(23 50 77 / 8%);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 1rem;
+}
+
+.metric-card h3 {
+  color: var(--monitor-navy);
+  margin-top: 0;
+}
+
+@media (max-width: 767.98px) {
+  .metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .status-banner {
+    overflow-wrap: anywhere;
+  }
+}
