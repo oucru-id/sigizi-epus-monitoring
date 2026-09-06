@@ -1,0 +1,13 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+renv/library/
+renv/staging/
+*.log
+*.csv
+*.xlsx
+*.rds
+*.RDS
+
