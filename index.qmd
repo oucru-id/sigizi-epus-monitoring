@@ -9,11 +9,16 @@ context <- monitoring_context()
 ```
 
 ::: {.status-banner}
-**Initial structure:** the website is not yet connected to BigQuery and no
-operational counts are displayed.
+**Current build:** the SIGIZI source contract and aggregate monitoring views
+are defined. Operational counts remain hidden until those views have been
+deployed and the controlled render has been connected to BigQuery.
 :::
 
 ## Monitoring scope
+
+The first source-system section is now available on the [SIGIZI monitoring](sigizi.qmd)
+page. It covers the five retained clinical sources and the separate deletion
+exclusion registry.
 
 ::: {.metric-grid}
 ::: {.metric-card}
@@ -52,4 +57,3 @@ authoritative in the `birth-outcome` pipeline.
 | BigQuery location | `r context$bigquery_location` |
 | Publication mode | `r context$publication_mode` |
 | Page rendered | `r context$rendered_at` |
-

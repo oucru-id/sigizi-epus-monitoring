@@ -1,0 +1,147 @@
+---
+title: "SIGIZI monitoring"
+description: "Aggregate ANC, INC, and PNC monitoring from retained SIGIZI records"
+---
+
+```{r}
+source("R/render_context.R")
+source("R/privacy.R")
+source("R/monitoring_data.R")
+
+context <- monitoring_context()
+source_summary <- read_public_monitoring_view(
+  context,
+  "v_sigizi_source_monitoring"
+)
+stage_summary <- read_public_monitoring_view(
+  context,
+  "v_sigizi_stage_monitoring"
+)
+deletion_summary <- read_public_monitoring_view(
+  context,
+  "v_sigizi_deletion_monitoring"
+)
+```
+
+::: {.status-banner}
+**Aggregate-only section:** the source roles and exclusion rules below follow
+the upstream `birth-outcome` pipeline. Live figures appear only when the three
+approved monitoring views are deployed and `MONITORING_DATA_SOURCE=bigquery`
+is enabled during a controlled render.
+:::
+
+## Monitoring pathway
+
+```{mermaid}
+flowchart LR
+  A[Five cleaned SIGIZI clinical sources] --> B{Pregnancy-specific\ndelection check}
+  H[Daftar ibu hamil hapus] --> B
+  B -->|Retained records| C[Geography correction]
+  B -->|Matched deleted pregnancy| D[Restricted exclusion audit]
+  C --> E[Canonical SIGIZI pregnancy episodes]
+  E --> F[Aggregate ANC / INC / PNC monitoring views]
+  F --> G[Public Quarto site]
+```
+
+The deletion registry is an exclusion reference. It is not unioned into ANC,
+INC, PNC, pregnancy, or delivery totals.
+
+## Source roles
+
+| SIGIZI source | Pipeline value | Monitoring use | Current boundary |
+|---|---|---|---|
+| Ibu hamil | `DAFTAR_IBU_HAMIL` | ANC pregnancy/registration evidence | Do not treat a registration row as an ANC encounter unless an ANC date exists |
+| Pemeriksaan ANC | `ANC` | ANC examination evidence | Explicit ANC dates support visit monitoring |
+| Kohort ibu | `KOHORT_IBU` | INC and delivery evidence | Delivery measures require a valid delivery date |
+| Kohort nifas | `KOHORT_NIFAS` | INC evidence and future PNC monitoring | PNC visits/KF stages require a curated visit-level adapter |
+| Daftar ibu | `DAFTAR_IBU` | Pregnancy registry and source-presence context | Not an ANC, INC, or PNC event numerator by itself |
+| Daftar ibu hamil hapus | `vs_sigizi_bumil_hapus` | Pregnancy-specific exclusion only | Never clinical evidence and never a service numerator |
+
+## ANC, INC, and PNC readiness
+
+::: {.metric-grid}
+::: {.metric-card}
+### ANC
+
+Uses retained `DAFTAR_IBU_HAMIL` and `ANC` records. Source-record volume,
+pregnancies with source evidence, and pregnancies with explicit ANC dates stay
+as separate measures.
+:::
+
+::: {.metric-card}
+### INC
+
+Uses retained `KOHORT_IBU` and `KOHORT_NIFAS` records. Source rows,
+pregnancies with delivery evidence, and canonical delivery events must not be
+combined into one denominator.
+:::
+
+::: {.metric-card}
+### PNC
+
+`KOHORT_NIFAS` confirms source availability. KF1-KF4 coverage is intentionally
+pending until a curated PNC visit date and visit-stage contract is approved.
+:::
+:::
+
+```{r}
+#| results: asis
+render_monitoring_table(
+  stage_summary,
+  empty_message = paste(
+    "Live stage measures are not enabled in this render.",
+    "The view contract is ready for BigQuery deployment."
+  )
+)
+```
+
+## Retained source monitoring
+
+Counts below, when enabled, come from `t_sigizi_source_records` after the
+deletion gate. Small non-zero counts below five are suppressed in the public
+views.
+
+```{r}
+#| results: asis
+render_monitoring_table(
+  source_summary,
+  empty_message = "Live retained-source measures are not enabled in this render."
+)
+```
+
+## Deleted-pregnancy exclusion
+
+A SIGIZI clinical row is excluded only when it matches the same pregnancy in
+the deletion registry:
+
+1. Matching usable identifier plus an exactly matching pregnancy anchor; or
+2. when an identifier is unavailable on either side, exact normalized name,
+   maternal birth date, and pregnancy anchor.
+
+The source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is
+missing. Conflicting usable identifiers block the name-based fallback. A later
+pregnancy for the same mother remains eligible, and independent EPUS or
+hospital evidence is not removed.
+
+```{r}
+#| results: asis
+render_monitoring_table(
+  deletion_summary,
+  empty_message = "Live deletion-gate reconciliation is not enabled in this render."
+)
+```
+
+## Denominator rules
+
+- Raw/retained source records measure source volume.
+- `t_sigizi_pregnancy_episode_v3_3` measures canonical SIGIZI pregnancies.
+- An ANC registration is not automatically an ANC encounter.
+- An INC source record, a pregnancy with delivery evidence, and a canonical
+  delivery event are different grains.
+- PNC visits and KF1-KF4 cannot be reported until the visit-level adapter is
+  explicitly defined.
+- All displayed tables are aggregate-only and pass the public-column guard
+  before being embedded in the static site.
+
+See the [SIGIZI monitoring contract](https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/docs/sigizi-monitoring-contract.md)
+for the SQL objects, deployment order, and validation boundary.

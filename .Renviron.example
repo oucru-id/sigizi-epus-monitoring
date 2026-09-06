@@ -3,3 +3,4 @@ BIRTH_OUTCOME_DATASET=kohort_bumil_v3
 MONITORING_DATASET=sigizi_epus_monitoring
 BIGQUERY_LOCATION=asia-southeast2
 PUBLICATION_MODE=aggregate_only
+MONITORING_DATA_SOURCE=disabled

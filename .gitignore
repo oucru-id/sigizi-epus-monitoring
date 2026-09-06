@@ -14,5 +14,7 @@ renv/staging/
 *.xlsx
 *.rds
 *.RDS
+__pycache__/
+*.py[cod]
 
 /.quarto/

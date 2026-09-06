@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - index.qmd
+    - sigizi.qmd
     - anc.qmd
     - inc.qmd
     - pnc.qmd
@@ -17,6 +18,8 @@ website:
     left:
       - href: index.qmd
         text: Overview
+      - href: sigizi.qmd
+        text: SIGIZI
       - href: anc.qmd
         text: ANC
       - href: inc.qmd
@@ -44,4 +47,3 @@ execute:
   freeze: false
 
 lang: en
-

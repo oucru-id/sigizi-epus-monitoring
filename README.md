@@ -6,8 +6,10 @@ Static Quarto/R monitoring website for antenatal care (ANC), intranatal care
 
 ## Status
 
-Initial Quarto website scaffold. The website renders successfully without a
-BigQuery connection and does not yet expose operational data.
+The initial SIGIZI monitoring section and its aggregate BigQuery view contracts
+are implemented. The website still renders safely without a BigQuery
+connection; operational counts remain disabled until the views are deployed
+and a controlled render identity is configured.
 
 ## Data boundary
 
@@ -39,6 +41,11 @@ Raw source-record counts, canonical visit counts, unique pregnancy counts, and
 delivery/baby counts will remain separate measures. R will query curated views
 during rendering rather than reproduce clinical matching logic.
 
+The SIGIZI source-to-stage contract is documented in
+[`docs/sigizi-monitoring-contract.md`](docs/sigizi-monitoring-contract.md).
+Its `daftar ibu hamil hapus` input is an exclusion registry, not a clinical
+source, and is never added to service totals.
+
 ## Render locally
 
 Prerequisites:
@@ -64,8 +71,7 @@ Rendered files are written to `_site/`. Preview locally with:
   requests without publishing it.
 - `.github/workflows/publish.yml` publishes to the `gh-pages` branch only when
   manually started from the GitHub Actions page.
-- Publishing must remain disabled until the intended audience and GitHub Pages
-  visibility have been reviewed.
+- The public site must contain approved aggregate measures only.
 
 The expected project-site URL, after publication is enabled, is:
 
@@ -73,7 +79,8 @@ The expected project-site URL, after publication is enabled, is:
 
 ## Privacy and security
 
-- Keep this repository private.
+- This repository and its GitHub Pages site are public; treat every committed
+  and rendered file as downloadable.
 - Never commit credentials, service-account keys, row-level exports, or
   identifiable screenshots.
 - Do not log patient identifiers.
