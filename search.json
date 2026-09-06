@@ -42,25 +42,74 @@
     "text": "Analytical rule\nA pregnancy, a delivery event, and a baby record are different grains. Counts and percentages will identify their denominator explicitly."
   },
   {
+    "objectID": "sigizi.html",
+    "href": "sigizi.html",
+    "title": "SIGIZI monitoring",
+    "section": "",
+    "text": "Aggregate-only section: the source roles and exclusion rules below follow the upstream birth-outcome pipeline. Live figures appear only when the three approved monitoring views are deployed and MONITORING_DATA_SOURCE=bigquery is enabled during a controlled render."
+  },
+  {
+    "objectID": "sigizi.html#monitoring-pathway",
+    "href": "sigizi.html#monitoring-pathway",
+    "title": "SIGIZI monitoring",
+    "section": "Monitoring pathway",
+    "text": "Monitoring pathway\n\n\n\n\n\nflowchart LR\n  A[Five cleaned SIGIZI clinical sources] --&gt; B{Pregnancy-specific\\ndelection check}\n  H[Daftar ibu hamil hapus] --&gt; B\n  B --&gt;|Retained records| C[Geography correction]\n  B --&gt;|Matched deleted pregnancy| D[Restricted exclusion audit]\n  C --&gt; E[Canonical SIGIZI pregnancy episodes]\n  E --&gt; F[Aggregate ANC / INC / PNC monitoring views]\n  F --&gt; G[Public Quarto site]\n\n\n\n\n\n\nThe deletion registry is an exclusion reference. It is not unioned into ANC, INC, PNC, pregnancy, or delivery totals."
+  },
+  {
+    "objectID": "sigizi.html#source-roles",
+    "href": "sigizi.html#source-roles",
+    "title": "SIGIZI monitoring",
+    "section": "Source roles",
+    "text": "Source roles\n\n\n\n\n\n\n\n\n\nSIGIZI source\nPipeline value\nMonitoring use\nCurrent boundary\n\n\n\n\nIbu hamil\nDAFTAR_IBU_HAMIL\nANC pregnancy/registration evidence\nDo not treat a registration row as an ANC encounter unless an ANC date exists\n\n\nPemeriksaan ANC\nANC\nANC examination evidence\nExplicit ANC dates support visit monitoring\n\n\nKohort ibu\nKOHORT_IBU\nINC and delivery evidence\nDelivery measures require a valid delivery date\n\n\nKohort nifas\nKOHORT_NIFAS\nINC evidence and future PNC monitoring\nPNC visits/KF stages require a curated visit-level adapter\n\n\nDaftar ibu\nDAFTAR_IBU\nPregnancy registry and source-presence context\nNot an ANC, INC, or PNC event numerator by itself\n\n\nDaftar ibu hamil hapus\nvs_sigizi_bumil_hapus\nPregnancy-specific exclusion only\nNever clinical evidence and never a service numerator"
+  },
+  {
+    "objectID": "sigizi.html#anc-inc-and-pnc-readiness",
+    "href": "sigizi.html#anc-inc-and-pnc-readiness",
+    "title": "SIGIZI monitoring",
+    "section": "ANC, INC, and PNC readiness",
+    "text": "ANC, INC, and PNC readiness\n\n\nANC\nUses retained DAFTAR_IBU_HAMIL and ANC records. Source-record volume, pregnancies with source evidence, and pregnancies with explicit ANC dates stay as separate measures.\n\n\nINC\nUses retained KOHORT_IBU and KOHORT_NIFAS records. Source rows, pregnancies with delivery evidence, and canonical delivery events must not be combined into one denominator.\n\n\nPNC\nKOHORT_NIFAS confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.\n\n\n\nData connection pending: Live stage measures are not enabled in this render. The view contract is ready for BigQuery deployment."
+  },
+  {
+    "objectID": "sigizi.html#retained-source-monitoring",
+    "href": "sigizi.html#retained-source-monitoring",
+    "title": "SIGIZI monitoring",
+    "section": "Retained source monitoring",
+    "text": "Retained source monitoring\nCounts below, when enabled, come from t_sigizi_source_records after the deletion gate. Small non-zero counts below five are suppressed in the public views.\n\nData connection pending: Live retained-source measures are not enabled in this render."
+  },
+  {
+    "objectID": "sigizi.html#deleted-pregnancy-exclusion",
+    "href": "sigizi.html#deleted-pregnancy-exclusion",
+    "title": "SIGIZI monitoring",
+    "section": "Deleted-pregnancy exclusion",
+    "text": "Deleted-pregnancy exclusion\nA SIGIZI clinical row is excluded only when it matches the same pregnancy in the deletion registry:\n\nMatching usable identifier plus an exactly matching pregnancy anchor; or\nwhen an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.\n\nThe source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.\n\nData connection pending: Live deletion-gate reconciliation is not enabled in this render."
+  },
+  {
+    "objectID": "sigizi.html#denominator-rules",
+    "href": "sigizi.html#denominator-rules",
+    "title": "SIGIZI monitoring",
+    "section": "Denominator rules",
+    "text": "Denominator rules\n\nRaw/retained source records measure source volume.\nt_sigizi_pregnancy_episode_v3_3 measures canonical SIGIZI pregnancies.\nAn ANC registration is not automatically an ANC encounter.\nAn INC source record, a pregnancy with delivery evidence, and a canonical delivery event are different grains.\nPNC visits and KF1-KF4 cannot be reported until the visit-level adapter is explicitly defined.\nAll displayed tables are aggregate-only and pass the public-column guard before being embedded in the static site.\n\nSee the SIGIZI monitoring contract for the SQL objects, deployment order, and validation boundary."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Overview",
     "section": "",
-    "text": "Initial structure: the website is not yet connected to BigQuery and no operational counts are displayed."
+    "text": "Current build: the SIGIZI source contract and aggregate monitoring views are defined. Operational counts remain hidden until those views have been deployed and the controlled render has been connected to BigQuery."
   },
   {
     "objectID": "index.html#monitoring-scope",
     "href": "index.html#monitoring-scope",
     "title": "Overview",
     "section": "Monitoring scope",
-    "text": "Monitoring scope\n\n\nANC\nAntenatal visit volume, canonical encounters, K1–K6 coverage, and source overlap.\n\n\nINC\nIntranatal and delivery recording coverage, with pregnancy and baby-record denominators kept separate.\n\n\nPNC\nPostnatal visit volume, KF1–KF4 coverage, and linkage completeness."
+    "text": "Monitoring scope\nThe first source-system section is now available on the SIGIZI monitoring page. It covers the five retained clinical sources and the separate deletion exclusion registry.\n\n\nANC\nAntenatal visit volume, canonical encounters, K1–K6 coverage, and source overlap.\n\n\nINC\nIntranatal and delivery recording coverage, with pregnancy and baby-record denominators kept separate.\n\n\nPNC\nPostnatal visit volume, KF1–KF4 coverage, and linkage completeness."
   },
   {
     "objectID": "index.html#data-boundary",
     "href": "index.html#data-boundary",
     "title": "Overview",
     "section": "Data boundary",
-    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-06 22:23 WITA"
+    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-06 23:30 WITA"
   },
   {
     "objectID": "anc.html",

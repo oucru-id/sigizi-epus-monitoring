@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Postnatal care monitoring across SIGIZI and EPUS">
+<meta name="description" content="Aggregate ANC, INC, and PNC monitoring from retained SIGIZI records">
 
-<title>PNC monitoring – SIGIZI–EPUS Monitoring</title>
+<title>SIGIZI monitoring – SIGIZI–EPUS Monitoring</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -95,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sigizi.html"> 
+    <a class="nav-link active" href="./sigizi.html" aria-current="page"> 
 <span class="menu-text">SIGIZI</span></a>
   </li>  
   <li class="nav-item">
@@ -107,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">INC</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./pnc.html" aria-current="page"> 
+    <a class="nav-link" href="./pnc.html"> 
 <span class="menu-text">PNC</span></a>
   </li>  
   <li class="nav-item">
@@ -130,22 +133,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#planned-measures" id="toc-planned-measures" class="nav-link active" data-scroll-target="#planned-measures">Planned measures</a></li>
-  <li><a href="#analytical-rule" id="toc-analytical-rule" class="nav-link" data-scroll-target="#analytical-rule">Analytical rule</a></li>
+  <li><a href="#monitoring-pathway" id="toc-monitoring-pathway" class="nav-link active" data-scroll-target="#monitoring-pathway">Monitoring pathway</a></li>
+  <li><a href="#source-roles" id="toc-source-roles" class="nav-link" data-scroll-target="#source-roles">Source roles</a></li>
+  <li><a href="#anc-inc-and-pnc-readiness" id="toc-anc-inc-and-pnc-readiness" class="nav-link" data-scroll-target="#anc-inc-and-pnc-readiness">ANC, INC, and PNC readiness</a></li>
+  <li><a href="#retained-source-monitoring" id="toc-retained-source-monitoring" class="nav-link" data-scroll-target="#retained-source-monitoring">Retained source monitoring</a></li>
+  <li><a href="#deleted-pregnancy-exclusion" id="toc-deleted-pregnancy-exclusion" class="nav-link" data-scroll-target="#deleted-pregnancy-exclusion">Deleted-pregnancy exclusion</a></li>
+  <li><a href="#denominator-rules" id="toc-denominator-rules" class="nav-link" data-scroll-target="#denominator-rules">Denominator rules</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/pnc.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/sigizi.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PNC monitoring</h1>
+<h1 class="title">SIGIZI monitoring</h1>
 </div>
 
 <div>
   <div class="description">
-    Postnatal care monitoring across SIGIZI and EPUS
+    Aggregate ANC, INC, and PNC monitoring from retained SIGIZI records
   </div>
 </div>
 
@@ -163,21 +170,138 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="status-banner">
-<p><strong>Data pending:</strong> PNC dates and visit-label contracts must be verified before counts are published.</p>
+<p><strong>Aggregate-only section:</strong> the source roles and exclusion rules below follow the upstream <code>birth-outcome</code> pipeline. Live figures appear only when the three approved monitoring views are deployed and <code>MONITORING_DATA_SOURCE=bigquery</code> is enabled during a controlled render.</p>
 </div>
-<section id="planned-measures" class="level2">
-<h2 class="anchored" data-anchor-id="planned-measures">Planned measures</h2>
-<ul>
-<li>PNC source-record volume by date and facility</li>
-<li>PNC visit counts and KF1–KF4 coverage</li>
-<li>First and latest PNC dates</li>
-<li>Pregnancy and delivery linkage completeness</li>
-<li>SIGIZI <code>KOHORT_NIFAS</code> and EPUS PNC source availability</li>
-</ul>
+<section id="monitoring-pathway" class="level2">
+<h2 class="anchored" data-anchor-id="monitoring-pathway">Monitoring pathway</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Five cleaned SIGIZI clinical sources] --&gt; B{Pregnancy-specific\ndelection check}
+  H[Daftar ibu hamil hapus] --&gt; B
+  B --&gt;|Retained records| C[Geography correction]
+  B --&gt;|Matched deleted pregnancy| D[Restricted exclusion audit]
+  C --&gt; E[Canonical SIGIZI pregnancy episodes]
+  E --&gt; F[Aggregate ANC / INC / PNC monitoring views]
+  F --&gt; G[Public Quarto site]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The deletion registry is an exclusion reference. It is not unioned into ANC, INC, PNC, pregnancy, or delivery totals.</p>
 </section>
-<section id="analytical-rule" class="level2">
-<h2 class="anchored" data-anchor-id="analytical-rule">Analytical rule</h2>
-<p>SIGIZI PNC details require a curated adapter with an explicit visit date and grain. The public website will not extract clinical fields from source JSON.</p>
+<section id="source-roles" class="level2">
+<h2 class="anchored" data-anchor-id="source-roles">Source roles</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>SIGIZI source</th>
+<th>Pipeline value</th>
+<th>Monitoring use</th>
+<th>Current boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ibu hamil</td>
+<td><code>DAFTAR_IBU_HAMIL</code></td>
+<td>ANC pregnancy/registration evidence</td>
+<td>Do not treat a registration row as an ANC encounter unless an ANC date exists</td>
+</tr>
+<tr class="even">
+<td>Pemeriksaan ANC</td>
+<td><code>ANC</code></td>
+<td>ANC examination evidence</td>
+<td>Explicit ANC dates support visit monitoring</td>
+</tr>
+<tr class="odd">
+<td>Kohort ibu</td>
+<td><code>KOHORT_IBU</code></td>
+<td>INC and delivery evidence</td>
+<td>Delivery measures require a valid delivery date</td>
+</tr>
+<tr class="even">
+<td>Kohort nifas</td>
+<td><code>KOHORT_NIFAS</code></td>
+<td>INC evidence and future PNC monitoring</td>
+<td>PNC visits/KF stages require a curated visit-level adapter</td>
+</tr>
+<tr class="odd">
+<td>Daftar ibu</td>
+<td><code>DAFTAR_IBU</code></td>
+<td>Pregnancy registry and source-presence context</td>
+<td>Not an ANC, INC, or PNC event numerator by itself</td>
+</tr>
+<tr class="even">
+<td>Daftar ibu hamil hapus</td>
+<td><code>vs_sigizi_bumil_hapus</code></td>
+<td>Pregnancy-specific exclusion only</td>
+<td>Never clinical evidence and never a service numerator</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="anc-inc-and-pnc-readiness" class="level2">
+<h2 class="anchored" data-anchor-id="anc-inc-and-pnc-readiness">ANC, INC, and PNC readiness</h2>
+<div class="metric-grid">
+<section id="anc" class="level3 metric-card">
+<h3 class="anchored" data-anchor-id="anc">ANC</h3>
+<p>Uses retained <code>DAFTAR_IBU_HAMIL</code> and <code>ANC</code> records. Source-record volume, pregnancies with source evidence, and pregnancies with explicit ANC dates stay as separate measures.</p>
+</section>
+<section id="inc" class="level3 metric-card">
+<h3 class="anchored" data-anchor-id="inc">INC</h3>
+<p>Uses retained <code>KOHORT_IBU</code> and <code>KOHORT_NIFAS</code> records. Source rows, pregnancies with delivery evidence, and canonical delivery events must not be combined into one denominator.</p>
+</section>
+<section id="pnc" class="level3 metric-card">
+<h3 class="anchored" data-anchor-id="pnc">PNC</h3>
+<p><code>KOHORT_NIFAS</code> confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.</p>
+</section>
+</div>
+<div class="status-banner">
+<p><strong>Data connection pending:</strong> Live stage measures are not enabled in this render. The view contract is ready for BigQuery deployment.</p>
+</div>
+</section>
+<section id="retained-source-monitoring" class="level2">
+<h2 class="anchored" data-anchor-id="retained-source-monitoring">Retained source monitoring</h2>
+<p>Counts below, when enabled, come from <code>t_sigizi_source_records</code> after the deletion gate. Small non-zero counts below five are suppressed in the public views.</p>
+<div class="status-banner">
+<p><strong>Data connection pending:</strong> Live retained-source measures are not enabled in this render.</p>
+</div>
+</section>
+<section id="deleted-pregnancy-exclusion" class="level2">
+<h2 class="anchored" data-anchor-id="deleted-pregnancy-exclusion">Deleted-pregnancy exclusion</h2>
+<p>A SIGIZI clinical row is excluded only when it matches the same pregnancy in the deletion registry:</p>
+<ol type="1">
+<li>Matching usable identifier plus an exactly matching pregnancy anchor; or</li>
+<li>when an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.</li>
+</ol>
+<p>The source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.</p>
+<div class="status-banner">
+<p><strong>Data connection pending:</strong> Live deletion-gate reconciliation is not enabled in this render.</p>
+</div>
+</section>
+<section id="denominator-rules" class="level2">
+<h2 class="anchored" data-anchor-id="denominator-rules">Denominator rules</h2>
+<ul>
+<li>Raw/retained source records measure source volume.</li>
+<li><code>t_sigizi_pregnancy_episode_v3_3</code> measures canonical SIGIZI pregnancies.</li>
+<li>An ANC registration is not automatically an ANC encounter.</li>
+<li>An INC source record, a pregnancy with delivery evidence, and a canonical delivery event are different grains.</li>
+<li>PNC visits and KF1-KF4 cannot be reported until the visit-level adapter is explicitly defined.</li>
+<li>All displayed tables are aggregate-only and pass the public-column guard before being embedded in the static site.</li>
+</ul>
+<p>See the <a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/docs/sigizi-monitoring-contract.md">SIGIZI monitoring contract</a> for the SQL objects, deployment order, and validation boundary.</p>
 
 
 </section>
@@ -595,7 +719,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/pnc.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/sigizi.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Data definitions are governed by the birth-outcome pipeline</p>
 </div>
