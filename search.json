@@ -60,7 +60,7 @@
     "href": "index.html#data-boundary",
     "title": "Overview",
     "section": "Data boundary",
-    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-06 22:20 WITA"
+    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-06 22:23 WITA"
   },
   {
     "objectID": "anc.html",
