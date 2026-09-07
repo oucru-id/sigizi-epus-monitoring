@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id" xml:lang="id"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Aggregate freshness, completeness, and reconciliation checks">
+<meta name="description" content="Pemeriksaan agregat keterkinian, kelengkapan, dan rekonsiliasi">
 
-<title>Source quality – SIGIZI–EPUS Monitoring</title>
+<title>Kualitas sumber – Pemantauan SIGIZI–EPUS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,17 +56,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Tidak ada hasil",
+    "search-matching-documents-text": "dokumen cocok",
+    "search-copy-link-title": "Salin tautan untuk mencari",
+    "search-hide-matches-text": "Sembunyikan kecocokan lainnya",
+    "search-more-match-text": "kecocokan lainnya di dokumen ini",
+    "search-more-matches-text": "kecocokan lainnya di dokumen ini",
+    "search-clear-button-title": "Hapus",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Batal",
+    "search-submit-button-title": "Kirim",
+    "search-label": "Mencari"
   }
 }</script>
 
@@ -84,18 +84,18 @@ ul.task-list li input[type="checkbox"] {
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">SIGIZI–EPUS Monitoring</span>
+    <span class="navbar-title">Pemantauan SIGIZI–EPUS</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Mencari"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alihkan navigasi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Overview</span></a>
+<span class="menu-text">Ringkasan</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./sigizi.html"> 
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./source-quality.html" aria-current="page"> 
-<span class="menu-text">Source quality</span></a>
+<span class="menu-text">Kualitas sumber</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -130,25 +130,25 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Di halaman ini</h2>
    
   <ul>
-  <li><a href="#planned-checks" id="toc-planned-checks" class="nav-link active" data-scroll-target="#planned-checks">Planned checks</a></li>
-  <li><a href="#publication-guard" id="toc-publication-guard" class="nav-link" data-scroll-target="#publication-guard">Publication guard</a></li>
+  <li><a href="#pemeriksaan-yang-direncanakan" id="toc-pemeriksaan-yang-direncanakan" class="nav-link active" data-scroll-target="#pemeriksaan-yang-direncanakan">Pemeriksaan yang direncanakan</a></li>
+  <li><a href="#perlindungan-publikasi" id="toc-perlindungan-publikasi" class="nav-link" data-scroll-target="#perlindungan-publikasi">Perlindungan publikasi</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/source-quality.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/source-quality.qmd" class="toc-action"><i class="bi bi-github"></i>Lihat sumber</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Laporkan isu</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Source quality</h1>
+<h1 class="title">Kualitas sumber</h1>
 </div>
 
 <div>
   <div class="description">
-    Aggregate freshness, completeness, and reconciliation checks
+    Pemeriksaan agregat keterkinian, kelengkapan, dan rekonsiliasi
   </div>
 </div>
 
@@ -166,22 +166,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="status-banner">
-<p><strong>Data pending:</strong> only approved aggregate quality indicators will be rendered.</p>
+<p><strong>Data belum tersedia:</strong> hanya indikator kualitas agregat yang telah disetujui yang akan ditampilkan.</p>
 </div>
-<section id="planned-checks" class="level2">
-<h2 class="anchored" data-anchor-id="planned-checks">Planned checks</h2>
+<section id="pemeriksaan-yang-direncanakan" class="level2">
+<h2 class="anchored" data-anchor-id="pemeriksaan-yang-direncanakan">Pemeriksaan yang direncanakan</h2>
 <ul>
-<li>Latest available record date and ingestion timestamp by source</li>
-<li>Daily record-volume changes</li>
-<li>Missing service date and facility percentages</li>
-<li>Invalid or missing identifier counts, reported only as aggregates</li>
-<li>Duplicate-group and unresolved-assignment counts</li>
-<li>Reconciliation between source, canonical-visit, pregnancy, delivery, and baby grains</li>
+<li>Tanggal rekam terbaru dan waktu ingest menurut sumber</li>
+<li>Perubahan volume rekam harian</li>
+<li>Persentase tanggal layanan atau fasilitas yang tidak tersedia</li>
+<li>Jumlah identitas tidak valid atau tidak tersedia, hanya dalam bentuk agregat</li>
+<li>Jumlah kelompok duplikat dan penetapan yang belum terselesaikan</li>
+<li>Rekonsiliasi antara sumber, kunjungan kanonis, kehamilan, persalinan, dan rekam bayi</li>
 </ul>
 </section>
-<section id="publication-guard" class="level2">
-<h2 class="anchored" data-anchor-id="publication-guard">Publication guard</h2>
-<p>Before any data frame is rendered publicly, its columns will pass <code>assert_public_columns()</code>. Names, NIKs, phone numbers, addresses, source JSON, and free text are prohibited from the static output.</p>
+<section id="perlindungan-publikasi" class="level2">
+<h2 class="anchored" data-anchor-id="perlindungan-publikasi">Perlindungan publikasi</h2>
+<p>Sebelum kerangka data ditampilkan kepada publik, seluruh kolom diperiksa oleh <code>assert_public_columns()</code>. Nama, NIK, nomor telepon, alamat, JSON sumber, dan teks bebas dilarang masuk ke keluaran statis.</p>
 
 
 </section>
@@ -212,12 +212,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Disalin!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Disalin!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -596,13 +596,13 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Aggregate monitoring only — no patient identifiers</p>
+<p>Hanya pemantauan agregat — tanpa identitas pasien</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/source-quality.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/source-quality.qmd" class="toc-action"><i class="bi bi-github"></i>Lihat sumber</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Laporkan isu</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Data definitions are governed by the birth-outcome pipeline</p>
+<p>Definisi data mengikuti pipeline birth-outcome</p>
 </div>
   </div>
 </footer>

@@ -2,169 +2,169 @@
   {
     "objectID": "source-quality.html",
     "href": "source-quality.html",
-    "title": "Source quality",
+    "title": "Kualitas sumber",
     "section": "",
-    "text": "Data pending: only approved aggregate quality indicators will be rendered."
+    "text": "Data belum tersedia: hanya indikator kualitas agregat yang telah disetujui yang akan ditampilkan."
   },
   {
-    "objectID": "source-quality.html#planned-checks",
-    "href": "source-quality.html#planned-checks",
-    "title": "Source quality",
-    "section": "Planned checks",
-    "text": "Planned checks\n\nLatest available record date and ingestion timestamp by source\nDaily record-volume changes\nMissing service date and facility percentages\nInvalid or missing identifier counts, reported only as aggregates\nDuplicate-group and unresolved-assignment counts\nReconciliation between source, canonical-visit, pregnancy, delivery, and baby grains"
+    "objectID": "source-quality.html#pemeriksaan-yang-direncanakan",
+    "href": "source-quality.html#pemeriksaan-yang-direncanakan",
+    "title": "Kualitas sumber",
+    "section": "Pemeriksaan yang direncanakan",
+    "text": "Pemeriksaan yang direncanakan\n\nTanggal rekam terbaru dan waktu ingest menurut sumber\nPerubahan volume rekam harian\nPersentase tanggal layanan atau fasilitas yang tidak tersedia\nJumlah identitas tidak valid atau tidak tersedia, hanya dalam bentuk agregat\nJumlah kelompok duplikat dan penetapan yang belum terselesaikan\nRekonsiliasi antara sumber, kunjungan kanonis, kehamilan, persalinan, dan rekam bayi"
   },
   {
-    "objectID": "source-quality.html#publication-guard",
-    "href": "source-quality.html#publication-guard",
-    "title": "Source quality",
-    "section": "Publication guard",
-    "text": "Publication guard\nBefore any data frame is rendered publicly, its columns will pass assert_public_columns(). Names, NIKs, phone numbers, addresses, source JSON, and free text are prohibited from the static output."
+    "objectID": "source-quality.html#perlindungan-publikasi",
+    "href": "source-quality.html#perlindungan-publikasi",
+    "title": "Kualitas sumber",
+    "section": "Perlindungan publikasi",
+    "text": "Perlindungan publikasi\nSebelum kerangka data ditampilkan kepada publik, seluruh kolom diperiksa oleh assert_public_columns(). Nama, NIK, nomor telepon, alamat, JSON sumber, dan teks bebas dilarang masuk ke keluaran statis."
   },
   {
     "objectID": "inc.html",
     "href": "inc.html",
-    "title": "INC monitoring",
+    "title": "Pemantauan INC",
     "section": "",
-    "text": "Data pending: INC aggregate contracts must be verified before counts are published."
+    "text": "Data belum tersedia: kontrak agregat INC harus diverifikasi sebelum angka dipublikasikan."
   },
   {
-    "objectID": "inc.html#planned-measures",
-    "href": "inc.html#planned-measures",
-    "title": "INC monitoring",
-    "section": "Planned measures",
-    "text": "Planned measures\n\nINC and delivery source-record volume by date and facility\nPregnancies with delivery evidence\nDelivery events and baby records as separate measures\nSIGIZI-only, EPUS-only, and cross-source recording coverage\nMissing delivery date, facility, outcome, and linkage indicators"
+    "objectID": "inc.html#indikator-yang-direncanakan",
+    "href": "inc.html#indikator-yang-direncanakan",
+    "title": "Pemantauan INC",
+    "section": "Indikator yang direncanakan",
+    "text": "Indikator yang direncanakan\n\nVolume rekam sumber INC dan persalinan menurut tanggal dan fasilitas\nKehamilan dengan bukti persalinan\nKejadian persalinan dan rekam bayi sebagai indikator terpisah\nCakupan pencatatan khusus SIGIZI, khusus EPUS, dan lintas sumber\nTanggal persalinan, fasilitas, luaran, atau keterhubungan yang tidak lengkap"
   },
   {
-    "objectID": "inc.html#analytical-rule",
-    "href": "inc.html#analytical-rule",
-    "title": "INC monitoring",
-    "section": "Analytical rule",
-    "text": "Analytical rule\nA pregnancy, a delivery event, and a baby record are different grains. Counts and percentages will identify their denominator explicitly."
+    "objectID": "inc.html#aturan-analisis",
+    "href": "inc.html#aturan-analisis",
+    "title": "Pemantauan INC",
+    "section": "Aturan analisis",
+    "text": "Aturan analisis\nKehamilan, kejadian persalinan, dan rekam bayi merupakan tingkat data yang berbeda. Setiap jumlah dan persentase akan menyebutkan denominatornya secara eksplisit."
   },
   {
     "objectID": "sigizi.html",
     "href": "sigizi.html",
-    "title": "SIGIZI monitoring",
+    "title": "Pemantauan SIGIZI",
     "section": "",
-    "text": "Aggregate-only section: the source roles and exclusion rules below follow the upstream birth-outcome pipeline. Live figures appear only when the three approved monitoring views are deployed and MONITORING_DATA_SOURCE=bigquery is enabled during a controlled render."
+    "text": "Bagian agregat: peran sumber dan aturan pengecualian di bawah mengikuti pipeline hulu birth-outcome. Angka aktual hanya muncul ketika ketiga view pemantauan tersedia dan MONITORING_DATA_SOURCE=bigquery diaktifkan saat render terkendali."
   },
   {
-    "objectID": "sigizi.html#monitoring-pathway",
-    "href": "sigizi.html#monitoring-pathway",
-    "title": "SIGIZI monitoring",
-    "section": "Monitoring pathway",
-    "text": "Monitoring pathway\n\n\n\n\n\nflowchart LR\n  A[Five cleaned SIGIZI clinical sources] --&gt; B{Pregnancy-specific\\ndelection check}\n  H[Daftar ibu hamil hapus] --&gt; B\n  B --&gt;|Retained records| C[Geography correction]\n  B --&gt;|Matched deleted pregnancy| D[Restricted exclusion audit]\n  C --&gt; E[Canonical SIGIZI pregnancy episodes]\n  E --&gt; F[Aggregate ANC / INC / PNC monitoring views]\n  F --&gt; G[Public Quarto site]\n\n\n\n\n\n\nThe deletion registry is an exclusion reference. It is not unioned into ANC, INC, PNC, pregnancy, or delivery totals."
+    "objectID": "sigizi.html#alur-pemantauan",
+    "href": "sigizi.html#alur-pemantauan",
+    "title": "Pemantauan SIGIZI",
+    "section": "Alur pemantauan",
+    "text": "Alur pemantauan\n\n\n\n\n\nflowchart LR\n  A[Lima sumber klinis SIGIZI yang telah dibersihkan] --&gt; B{Pemeriksaan penghapusan\\nspesifik kehamilan}\n  H[Daftar ibu hamil hapus] --&gt; B\n  B --&gt;|Rekam dipertahankan| C[Koreksi wilayah]\n  B --&gt;|Cocok dengan kehamilan dihapus| D[Audit pengecualian terbatas]\n  C --&gt; E[Episode kehamilan SIGIZI kanonis]\n  E --&gt; F[View pemantauan agregat ANC / INC / PNC]\n  F --&gt; G[Situs publik Quarto]\n\n\n\n\n\n\nRegister penghapusan merupakan referensi pengecualian. Register ini tidak digabungkan ke dalam jumlah ANC, INC, PNC, kehamilan, atau persalinan."
   },
   {
-    "objectID": "sigizi.html#source-roles",
-    "href": "sigizi.html#source-roles",
-    "title": "SIGIZI monitoring",
-    "section": "Source roles",
-    "text": "Source roles\n\n\n\n\n\n\n\n\n\nSIGIZI source\nPipeline value\nMonitoring use\nCurrent boundary\n\n\n\n\nIbu hamil\nDAFTAR_IBU_HAMIL\nANC pregnancy/registration evidence\nDo not treat a registration row as an ANC encounter unless an ANC date exists\n\n\nPemeriksaan ANC\nANC\nANC examination evidence\nExplicit ANC dates support visit monitoring\n\n\nKohort ibu\nKOHORT_IBU\nINC and delivery evidence\nDelivery measures require a valid delivery date\n\n\nKohort nifas\nKOHORT_NIFAS\nINC evidence and future PNC monitoring\nPNC visits/KF stages require a curated visit-level adapter\n\n\nDaftar ibu\nDAFTAR_IBU\nPregnancy registry and source-presence context\nNot an ANC, INC, or PNC event numerator by itself\n\n\nDaftar ibu hamil hapus\nvs_sigizi_bumil_hapus\nPregnancy-specific exclusion only\nNever clinical evidence and never a service numerator"
+    "objectID": "sigizi.html#peran-sumber",
+    "href": "sigizi.html#peran-sumber",
+    "title": "Pemantauan SIGIZI",
+    "section": "Peran sumber",
+    "text": "Peran sumber\n\n\n\n\n\n\n\n\n\nSumber SIGIZI\nNilai pipeline\nPenggunaan pemantauan\nBatasan saat ini\n\n\n\n\nIbu hamil\nDAFTAR_IBU_HAMIL\nBukti kehamilan/pendaftaran ANC\nBaris pendaftaran bukan kunjungan ANC kecuali memiliki tanggal ANC\n\n\nPemeriksaan ANC\nANC\nBukti pemeriksaan ANC\nTanggal ANC eksplisit mendukung pemantauan kunjungan\n\n\nKohort ibu\nKOHORT_IBU\nBukti INC dan persalinan\nIndikator persalinan memerlukan tanggal persalinan valid\n\n\nKohort nifas\nKOHORT_NIFAS\nBukti INC dan calon pemantauan PNC\nKunjungan/tahap KF memerlukan adaptor tingkat kunjungan\n\n\nDaftar ibu\nDAFTAR_IBU\nRegister kehamilan dan konteks keberadaan sumber\nBukan numerator kejadian ANC, INC, atau PNC secara tersendiri\n\n\nDaftar ibu hamil hapus\nvs_sigizi_bumil_hapus\nPengecualian spesifik kehamilan\nBukan bukti klinis dan bukan numerator layanan"
   },
   {
-    "objectID": "sigizi.html#anc-inc-and-pnc-readiness",
-    "href": "sigizi.html#anc-inc-and-pnc-readiness",
-    "title": "SIGIZI monitoring",
-    "section": "ANC, INC, and PNC readiness",
-    "text": "ANC, INC, and PNC readiness\n\n\nANC\nUses retained DAFTAR_IBU_HAMIL and ANC records. Source-record volume, pregnancies with source evidence, and pregnancies with explicit ANC dates stay as separate measures.\n\n\nINC\nUses retained KOHORT_IBU and KOHORT_NIFAS records. Source rows, pregnancies with delivery evidence, and canonical delivery events must not be combined into one denominator.\n\n\nPNC\nKOHORT_NIFAS confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmonitoring_stage\nsource_record_count\npregnancy_evidence_count\nexplicit_event_pregnancy_count\nmeasure_status\ndenominator_definition\nhas_suppressed_small_count\n\n\n\n\nANC\n79270\n15239\n12275\nSOURCE_AND_PREGNANCY_READY\nDAFTAR_IBU_HAMIL + ANC retained records; canonical SIGIZI pregnancy episodes\nFALSE\n\n\nINC\n59967\n25396\n7338\nSOURCE_AND_PREGNANCY_READY\nKOHORT_IBU + KOHORT_NIFAS retained records; pregnancies with delivery evidence\nFALSE\n\n\nPNC\n29771\n19647\nNA\nPNC_VISIT_ADAPTER_REQUIRED\nKOHORT_NIFAS source presence only; KF1-KF4 is not yet defined\nNA"
+    "objectID": "sigizi.html#kesiapan-anc-inc-dan-pnc",
+    "href": "sigizi.html#kesiapan-anc-inc-dan-pnc",
+    "title": "Pemantauan SIGIZI",
+    "section": "Kesiapan ANC, INC, dan PNC",
+    "text": "Kesiapan ANC, INC, dan PNC\n\n\nANC\nMenggunakan rekam DAFTAR_IBU_HAMIL dan ANC yang dipertahankan. Volume rekam sumber, kehamilan dengan bukti sumber, dan kehamilan dengan tanggal ANC eksplisit tetap menjadi indikator yang berbeda.\n\n\nINC\nMenggunakan rekam KOHORT_IBU dan KOHORT_NIFAS yang dipertahankan. Baris sumber, kehamilan dengan bukti persalinan, dan kejadian persalinan kanonis tidak digabungkan dalam satu denominator.\n\n\nPNC\nKOHORT_NIFAS memastikan ketersediaan sumber. Cakupan KF1–KF4 menunggu tanggal kunjungan PNC dan kontrak tahap kunjungan yang telah dikurasi.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTahap pemantauan\nJumlah rekam sumber\nJumlah bukti kehamilan\nKehamilan dengan kejadian eksplisit\nStatus indikator\nDefinisi denominator\nAda jumlah kecil yang disamarkan\n\n\n\n\nANC\n79270\n15239\n12275\nSUMBER_DAN_KEHAMILAN_SIAP\nRekam DAFTAR_IBU_HAMIL + ANC yang dipertahankan; episode kehamilan SIGIZI kanonis\nTidak\n\n\nINC\n59967\n25396\n7338\nSUMBER_DAN_KEHAMILAN_SIAP\nRekam KOHORT_IBU + KOHORT_NIFAS yang dipertahankan; kehamilan dengan bukti persalinan\nTidak\n\n\nPNC\n29771\n19647\nNA\nADAPTOR_KUNJUNGAN_PNC_DIPERLUKAN\nHanya keberadaan sumber KOHORT_NIFAS; KF1–KF4 belum ditetapkan\nNA"
   },
   {
-    "objectID": "sigizi.html#retained-source-monitoring",
-    "href": "sigizi.html#retained-source-monitoring",
-    "title": "SIGIZI monitoring",
-    "section": "Retained source monitoring",
-    "text": "Retained source monitoring\nCounts below, when enabled, come from t_sigizi_source_records after the deletion gate. Small non-zero counts below five are suppressed in the public views.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsource_table\nsource_label\nmonitoring_domain\nmonitoring_role\nsupports_anc\nsupports_inc\nsupports_pnc\nactive_record_count\nexcluded_record_count\nrecord_count_before_exclusion\nrecords_with_pregnancy_timing\nrecords_with_explicit_service_date\nrecords_with_location\nrecords_with_valid_primary_identifier\nearliest_evidence_date\nlatest_evidence_date\nhas_suppressed_small_count\n\n\n\n\nDAFTAR_IBU_HAMIL\nIbu hamil\nANC\nPregnancy registration/evidence; not an ANC encounter by itself\nTRUE\nFALSE\nFALSE\n13123\n3617\n16740\n13015\n0\n13120\n12825\n0023-04-12\n2029-06-25\nFALSE\n\n\nANC\nPemeriksaan ANC\nANC\nExplicit ANC examination evidence\nTRUE\nFALSE\nFALSE\n66147\n19917\n86064\n60435\n60437\n66146\n65154\n2024-03-20\n2026-09-18\nFALSE\n\n\nKOHORT_IBU\nKohort ibu\nINC\nINC and delivery evidence\nFALSE\nTRUE\nFALSE\n30196\n3869\n34065\n15974\n9359\n26398\n23503\n0006-08-19\n2033-08-17\nFALSE\n\n\nKOHORT_NIFAS\nKohort nifas\nINC / PNC\nINC evidence; PNC visits await a curated visit-level adapter\nFALSE\nTRUE\nTRUE\n29771\n3430\n33201\n20330\n13460\n29771\n28282\n0006-07-18\n2034-07-19\nFALSE\n\n\nDAFTAR_IBU\nDaftar ibu\nCONTEXT\nPregnancy registry and source-presence context\nFALSE\nFALSE\nFALSE\n33954\n4136\n38090\n28547\n0\n30509\n30723\n0001-01-01\n2027-03-11\nFALSE"
+    "objectID": "sigizi.html#pemantauan-sumber-yang-dipertahankan",
+    "href": "sigizi.html#pemantauan-sumber-yang-dipertahankan",
+    "title": "Pemantauan SIGIZI",
+    "section": "Pemantauan sumber yang dipertahankan",
+    "text": "Pemantauan sumber yang dipertahankan\nJika diaktifkan, jumlah di bawah berasal dari t_sigizi_source_records setelah gerbang penghapusan. Jumlah bukan nol di bawah lima disamarkan pada view publik.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSumber data\nNama sumber\nDomain pemantauan\nPeran dalam pemantauan\nMendukung ANC\nMendukung INC\nMendukung PNC\nJumlah rekam aktif\nJumlah rekam dikecualikan\nJumlah sebelum pengecualian\nRekam dengan waktu kehamilan\nRekam dengan tanggal layanan\nRekam dengan lokasi\nRekam dengan identitas utama valid\nTanggal bukti paling awal\nTanggal bukti paling akhir\nAda jumlah kecil yang disamarkan\n\n\n\n\nDAFTAR_IBU_HAMIL\nIbu hamil\nANC\nBukti pendaftaran/kehamilan; bukan kunjungan ANC secara tersendiri\nYa\nTidak\nTidak\n13123\n3617\n16740\n13015\n0\n13120\n12825\n0023-04-12\n2029-06-25\nTidak\n\n\nANC\nPemeriksaan ANC\nANC\nBukti eksplisit pemeriksaan ANC\nYa\nTidak\nTidak\n66147\n19917\n86064\n60435\n60437\n66146\n65154\n2024-03-20\n2026-09-18\nTidak\n\n\nKOHORT_IBU\nKohort ibu\nINC\nBukti INC dan persalinan\nTidak\nYa\nTidak\n30196\n3869\n34065\n15974\n9359\n26398\n23503\n0006-08-19\n2033-08-17\nTidak\n\n\nKOHORT_NIFAS\nKohort nifas\nINC / PNC\nBukti INC; kunjungan PNC menunggu adaptor tingkat kunjungan\nTidak\nYa\nYa\n29771\n3430\n33201\n20330\n13460\n29771\n28282\n0006-07-18\n2034-07-19\nTidak\n\n\nDAFTAR_IBU\nDaftar ibu\nKONTEKS\nRegister kehamilan dan konteks keberadaan sumber\nTidak\nTidak\nTidak\n33954\n4136\n38090\n28547\n0\n30509\n30723\n0001-01-01\n2027-03-11\nTidak"
   },
   {
-    "objectID": "sigizi.html#deleted-pregnancy-exclusion",
-    "href": "sigizi.html#deleted-pregnancy-exclusion",
-    "title": "SIGIZI monitoring",
-    "section": "Deleted-pregnancy exclusion",
-    "text": "Deleted-pregnancy exclusion\nA SIGIZI clinical row is excluded only when it matches the same pregnancy in the deletion registry:\n\nMatching usable identifier plus an exactly matching pregnancy anchor; or\nwhen an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.\n\nThe source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.\n\n\n\n\n\n\n\n\n\n\n\n\n\nexclusion_refreshed_at\nexclusion_rule_version\ndeletion_registry_count\nsource_rows_before_exclusion\nexcluded_source_record_count\nactive_source_record_count\nsource_records_without_pregnancy_anchor\nhas_suppressed_small_count\n\n\n\n\n2026-09-07 00:01:00\nSIGIZI_PREGNANCY_DELETION_V1\n7722\n208160\n34969\n173191\n34350\nFALSE"
+    "objectID": "sigizi.html#pengecualian-kehamilan-yang-dihapus",
+    "href": "sigizi.html#pengecualian-kehamilan-yang-dihapus",
+    "title": "Pemantauan SIGIZI",
+    "section": "Pengecualian kehamilan yang dihapus",
+    "text": "Pengecualian kehamilan yang dihapus\nBaris klinis SIGIZI dikecualikan hanya ketika cocok dengan kehamilan yang sama di dalam register penghapusan:\n\nIdentitas yang dapat digunakan dan acuan kehamilan sama persis; atau\njika identitas tidak tersedia pada salah satu sisi, nama ternormalisasi, tanggal lahir ibu, dan acuan kehamilan harus sama persis.\n\nAcuan sumber menggunakan HPHT, dengan HPL dikurangi 280 hari sebagai nilai cadangan jika HPHT tidak tersedia. Konflik identitas yang valid mencegah pencocokan cadangan berbasis nama. Kehamilan lain dari ibu yang sama tetap memenuhi syarat, dan bukti independen dari EPUS atau rumah sakit tidak dihapus.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWaktu pembaruan pengecualian\nVersi aturan pengecualian\nJumlah register penghapusan\nBaris sumber sebelum pengecualian\nRekam sumber dikecualikan\nRekam sumber aktif\nRekam tanpa acuan kehamilan\nAda jumlah kecil yang disamarkan\n\n\n\n\n2026-09-07 00:01:00\nSIGIZI_PREGNANCY_DELETION_V1\n7722\n208160\n34969\n173191\n34350\nTidak"
   },
   {
-    "objectID": "sigizi.html#denominator-rules",
-    "href": "sigizi.html#denominator-rules",
-    "title": "SIGIZI monitoring",
-    "section": "Denominator rules",
-    "text": "Denominator rules\n\nRaw/retained source records measure source volume.\nt_sigizi_pregnancy_episode_v3_3 measures canonical SIGIZI pregnancies.\nAn ANC registration is not automatically an ANC encounter.\nAn INC source record, a pregnancy with delivery evidence, and a canonical delivery event are different grains.\nPNC visits and KF1-KF4 cannot be reported until the visit-level adapter is explicitly defined.\nAll displayed tables are aggregate-only and pass the public-column guard before being embedded in the static site.\n\nSee the SIGIZI monitoring contract for the SQL objects, deployment order, and validation boundary."
+    "objectID": "sigizi.html#aturan-denominator",
+    "href": "sigizi.html#aturan-denominator",
+    "title": "Pemantauan SIGIZI",
+    "section": "Aturan denominator",
+    "text": "Aturan denominator\n\nRekam sumber mentah/dipertahankan mengukur volume sumber.\nt_sigizi_pregnancy_episode_v3_3 mengukur kehamilan SIGIZI kanonis.\nPendaftaran ANC tidak otomatis menjadi kunjungan ANC.\nRekam sumber INC, kehamilan dengan bukti persalinan, dan kejadian persalinan kanonis merupakan tingkat data yang berbeda.\nKunjungan PNC dan KF1–KF4 belum dapat dilaporkan sampai adaptor tingkat kunjungannya ditetapkan.\nSemua tabel yang ditampilkan hanya berisi agregat dan melewati pemeriksaan kolom publik sebelum dimasukkan ke situs statis.\n\nLihat kontrak pemantauan SIGIZI untuk objek SQL, urutan penerapan, dan batasan validasi."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Overview",
+    "title": "Ringkasan",
     "section": "",
-    "text": "Current build: the SIGIZI source contract and aggregate monitoring views are defined. Operational counts remain hidden until those views have been deployed and the controlled render has been connected to BigQuery."
+    "text": "Status saat ini: kontrak sumber SIGIZI dan view pemantauan agregat telah ditetapkan. Angka operasional hanya ditampilkan pada hasil render terkendali yang terhubung dengan BigQuery."
   },
   {
-    "objectID": "index.html#monitoring-scope",
-    "href": "index.html#monitoring-scope",
-    "title": "Overview",
-    "section": "Monitoring scope",
-    "text": "Monitoring scope\nThe first source-system section is now available on the SIGIZI monitoring page. It covers the five retained clinical sources and the separate deletion exclusion registry.\n\n\nANC\nAntenatal visit volume, canonical encounters, K1–K6 coverage, and source overlap.\n\n\nINC\nIntranatal and delivery recording coverage, with pregnancy and baby-record denominators kept separate.\n\n\nPNC\nPostnatal visit volume, KF1–KF4 coverage, and linkage completeness."
+    "objectID": "index.html#ruang-lingkup-pemantauan",
+    "href": "index.html#ruang-lingkup-pemantauan",
+    "title": "Ringkasan",
+    "section": "Ruang lingkup pemantauan",
+    "text": "Ruang lingkup pemantauan\nBagian sistem sumber pertama tersedia pada halaman Pemantauan SIGIZI. Bagian tersebut mencakup lima sumber klinis yang dipertahankan dan register pengecualian penghapusan yang dikelola secara terpisah.\n\n\nANC\nVolume kunjungan antenatal, kunjungan kanonis, cakupan K1–K6, dan tumpang tindih antar-sumber.\n\n\nINC\nCakupan pencatatan intranatal dan persalinan, dengan denominator kehamilan dan rekam bayi yang tetap dipisahkan.\n\n\nPNC\nVolume kunjungan pascapersalinan, cakupan KF1–KF4, dan kelengkapan keterhubungan."
   },
   {
-    "objectID": "index.html#data-boundary",
-    "href": "index.html#data-boundary",
-    "title": "Overview",
-    "section": "Data boundary",
-    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-07 10:35 WITA"
+    "objectID": "index.html#batasan-data",
+    "href": "index.html#batasan-data",
+    "title": "Ringkasan",
+    "section": "Batasan data",
+    "text": "Batasan data\nSitus ini membaca view pemantauan agregat yang telah disetujui dan berasal dari spheres-lombok-barat.kohort_bumil_v3. Pembersihan, pencocokan, deduplikasi, pembentukan kehamilan kanonis, dan definisi luaran tetap mengikuti pipeline birth-outcome sebagai sumber acuan.\n\n\n\nPengaturan\nNilai\n\n\n\n\nProyek BigQuery\nspheres-lombok-barat\n\n\nDataset hulu\nkohort_bumil_v3\n\n\nDataset pemantauan\nsigizi_epus_monitoring\n\n\nLokasi BigQuery\nasia-southeast2\n\n\nMode publikasi\naggregate_only\n\n\nWaktu render halaman\n2026-09-07 11:12 WITA"
   },
   {
     "objectID": "anc.html",
     "href": "anc.html",
-    "title": "ANC monitoring",
+    "title": "Pemantauan ANC",
     "section": "",
-    "text": "Aggregate ANC monitoring enabled. Documentation measures whether an answer was recorded; service completion measures whether the recorded answer indicates that the required service was performed."
+    "text": "Pemantauan agregat ANC aktif. Kelengkapan dokumentasi menunjukkan apakah jawaban dicatat; pelaksanaan layanan menunjukkan apakah jawaban tersebut menyatakan bahwa layanan wajib benar-benar dilakukan."
   },
   {
-    "objectID": "anc.html#headline-indicators",
-    "href": "anc.html#headline-indicators",
-    "title": "ANC monitoring",
-    "section": "Headline indicators",
-    "text": "Headline indicators\n\n\n\nANC encounters\n\n\n66,147\n\n\nRetained, deduplicated SIGIZI ANC source encounters\n\n\n\n\nDocumentation completeness\n\n\n97.0%\n\n\nRequired field opportunities with a recorded answer\n\n\n\n\nService completion\n\n\n79.9%\n\n\nRequired field opportunities indicating service performed\n\n\n\n\nFully documented encounters\n\n\n78.2%\n\n\nEncounters with every required answer recorded\n\n\n\n\nAll required services completed\n\n\n19.3%\n\n\nEncounters indicating completion of every required service\n\n\n\n\nPregnancy episode assignment\n\n\n86.6%\n\n\nEncounters linked to a canonical SIGIZI pregnancy episode\n\n\n\nDocumentation completeness is not the same as clinical service completion. For example, Tidak diperiksa is a recorded answer but does not indicate that the examination was performed."
+    "objectID": "anc.html#indikator-utama",
+    "href": "anc.html#indikator-utama",
+    "title": "Pemantauan ANC",
+    "section": "Indikator utama",
+    "text": "Indikator utama\n\n\n\nKunjungan ANC\n\n\n66.147\n\n\nRekam kunjungan ANC SIGIZI yang dipertahankan dan telah dideduplikasi\n\n\n\n\nKelengkapan dokumentasi\n\n\n97,0%\n\n\nKomponen wajib dengan jawaban yang tercatat\n\n\n\n\nPelaksanaan layanan\n\n\n79,9%\n\n\nKomponen wajib yang menunjukkan layanan telah dilakukan\n\n\n\n\nKunjungan terdokumentasi lengkap\n\n\n78,2%\n\n\nKunjungan dengan seluruh jawaban wajib tercatat\n\n\n\n\nSeluruh layanan wajib dilakukan\n\n\n19,3%\n\n\nKunjungan dengan seluruh layanan wajib telah dilakukan\n\n\n\n\nPenetapan episode kehamilan\n\n\n86,6%\n\n\nKunjungan yang terhubung dengan episode kehamilan SIGIZI\n\n\n\nKelengkapan dokumentasi tidak sama dengan pelaksanaan layanan klinis. Sebagai contoh, Tidak diperiksa merupakan jawaban yang tercatat, tetapi tidak menunjukkan bahwa pemeriksaan telah dilakukan."
   },
   {
-    "objectID": "anc.html#latest-monthly-component-results",
-    "href": "anc.html#latest-monthly-component-results",
-    "title": "ANC monitoring",
-    "section": "Latest monthly component results",
-    "text": "Latest monthly component results\nDistrict aggregate for September 2026. Results are ordered by visit and lowest service completion.\n\n\n\n\n\n\n\n\n\n\nVisit\nComponent\nRequired\nDocumentation completeness\nService completion\n\n\n\n\nK1\nMid-upper arm circumference (LILA)\n24\n0.0%\n0.0%\n\n\nK1\nTetanus immunisation screening\n24\n100.0%\n58.3%\n\n\nK1\nUltrasound examination\n24\n100.0%\n58.3%\n\n\nK1\nMental-health screening\n24\n100.0%\n62.5%\n\n\nK1\nHaemoglobin test\n24\n100.0%\n66.7%\n\n\nK1\nHepatitis B test\n24\n100.0%\n66.7%\n\n\nK1\nHIV test\n24\n100.0%\n66.7%\n\n\nK1\nSyphilis test\n24\n100.0%\n66.7%\n\n\nK1\nBlood pressure status\n24\n100.0%\n100.0%\n\n\nK1\nHeight\n24\n100.0%\n100.0%\n\n\nK1\nPregnancy counselling\n24\n100.0%\n100.0%\n\n\nK1\nWeight\n24\n100.0%\n100.0%\n\n\nK1\nBlood group\nSuppressed\nSuppressed\nSuppressed\n\n\nK1\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK2\nMental-health screening\n37\n100.0%\n35.1%\n\n\nK2\nFetal heart rate (DJJ)\n37\n100.0%\n62.2%\n\n\nK2\nIron supplementation\n37\n100.0%\n70.3%\n\n\nK2\nBlood pressure status\n37\n100.0%\n100.0%\n\n\nK2\nFundal height\n37\n100.0%\n100.0%\n\n\nK2\nPregnancy counselling\n37\n100.0%\n100.0%\n\n\nK2\nWeight\n37\n100.0%\n100.0%\n\n\nK3\nMental-health screening\n54\n100.0%\n13.0%\n\n\nK3\nIron supplementation\n54\n100.0%\n87.0%\n\n\nK3\nBlood pressure status\n54\n100.0%\n100.0%\n\n\nK3\nFundal height\n54\n100.0%\n100.0%\n\n\nK3\nPregnancy counselling\n54\n100.0%\n100.0%\n\n\nK3\nWeight\n54\n100.0%\n100.0%\n\n\nK3\nFetal heart rate (DJJ)\nSuppressed\nSuppressed\nSuppressed\n\n\nK4\nMental-health screening\n18\n100.0%\n27.8%\n\n\nK4\nBlood pressure status\n18\n100.0%\n100.0%\n\n\nK4\nFetal heart rate (DJJ)\n18\n100.0%\n100.0%\n\n\nK4\nFundal height\n18\n100.0%\n100.0%\n\n\nK4\nWeight\n18\n100.0%\n100.0%\n\n\nK4\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK4\nPregnancy counselling\nSuppressed\nSuppressed\nSuppressed\n\n\nK5\nUltrasound examination\n21\n100.0%\n28.6%\n\n\nK5\nMental-health screening\n21\n100.0%\n33.3%\n\n\nK5\nBlood pressure status\n21\n100.0%\n100.0%\n\n\nK5\nFetal heart rate (DJJ)\n21\n100.0%\n100.0%\n\n\nK5\nFundal height\n21\n100.0%\n100.0%\n\n\nK5\nPregnancy counselling\n21\n100.0%\n100.0%\n\n\nK5\nWeight\n21\n100.0%\n100.0%\n\n\nK5\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK6\nBlood pressure status\n17\n100.0%\n100.0%\n\n\nK6\nFetal heart rate (DJJ)\n17\n100.0%\n100.0%\n\n\nK6\nFundal height\n17\n100.0%\n100.0%\n\n\nK6\nPregnancy counselling\n17\n100.0%\n100.0%\n\n\nK6\nWeight\n17\n100.0%\n100.0%\n\n\nK6\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK6\nMental-health screening\nSuppressed\nSuppressed\nSuppressed\n\n\n\nThe SIGIZI blood-pressure field stores a categorical status such as normal, hypertensive, or hypotensive. It does not contain independently assessable systolic and diastolic measurements, so the monitoring contract reports one TEKANAN_DARAH component and retains this as a source-capture limitation."
+    "objectID": "anc.html#hasil-komponen-pada-bulan-terbaru",
+    "href": "anc.html#hasil-komponen-pada-bulan-terbaru",
+    "title": "Pemantauan ANC",
+    "section": "Hasil komponen pada bulan terbaru",
+    "text": "Hasil komponen pada bulan terbaru\nAgregat tingkat kabupaten untuk September 2026. Hasil diurutkan menurut kunjungan dan pelaksanaan layanan terendah.\n\n\n\n\n\n\n\n\n\n\nKunjungan\nKomponen\nWajib\nKelengkapan dokumentasi\nPelaksanaan layanan\n\n\n\n\nK1\nPengukuran lingkar lengan atas (LILA)\n24\n0,0%\n0,0%\n\n\nK1\nPemeriksaan USG\n24\n100,0%\n58,3%\n\n\nK1\nSkrining imunisasi tetanus\n24\n100,0%\n58,3%\n\n\nK1\nSkrining kesehatan jiwa\n24\n100,0%\n62,5%\n\n\nK1\nPemeriksaan hemoglobin\n24\n100,0%\n66,7%\n\n\nK1\nPemeriksaan hepatitis B\n24\n100,0%\n66,7%\n\n\nK1\nPemeriksaan HIV\n24\n100,0%\n66,7%\n\n\nK1\nPemeriksaan sifilis\n24\n100,0%\n66,7%\n\n\nK1\nKonseling kehamilan\n24\n100,0%\n100,0%\n\n\nK1\nPengukuran berat badan\n24\n100,0%\n100,0%\n\n\nK1\nPengukuran tinggi badan\n24\n100,0%\n100,0%\n\n\nK1\nStatus tekanan darah\n24\n100,0%\n100,0%\n\n\nK1\nPemeriksaan golongan darah\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK1\nSuplementasi zat besi\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK2\nSkrining kesehatan jiwa\n37\n100,0%\n35,1%\n\n\nK2\nDenyut jantung janin (DJJ)\n37\n100,0%\n62,2%\n\n\nK2\nSuplementasi zat besi\n37\n100,0%\n70,3%\n\n\nK2\nKonseling kehamilan\n37\n100,0%\n100,0%\n\n\nK2\nPengukuran berat badan\n37\n100,0%\n100,0%\n\n\nK2\nPengukuran tinggi fundus\n37\n100,0%\n100,0%\n\n\nK2\nStatus tekanan darah\n37\n100,0%\n100,0%\n\n\nK3\nSkrining kesehatan jiwa\n54\n100,0%\n13,0%\n\n\nK3\nSuplementasi zat besi\n54\n100,0%\n87,0%\n\n\nK3\nKonseling kehamilan\n54\n100,0%\n100,0%\n\n\nK3\nPengukuran berat badan\n54\n100,0%\n100,0%\n\n\nK3\nPengukuran tinggi fundus\n54\n100,0%\n100,0%\n\n\nK3\nStatus tekanan darah\n54\n100,0%\n100,0%\n\n\nK3\nDenyut jantung janin (DJJ)\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK4\nSkrining kesehatan jiwa\n18\n100,0%\n27,8%\n\n\nK4\nDenyut jantung janin (DJJ)\n18\n100,0%\n100,0%\n\n\nK4\nPengukuran berat badan\n18\n100,0%\n100,0%\n\n\nK4\nPengukuran tinggi fundus\n18\n100,0%\n100,0%\n\n\nK4\nStatus tekanan darah\n18\n100,0%\n100,0%\n\n\nK4\nKonseling kehamilan\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK4\nSuplementasi zat besi\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK5\nPemeriksaan USG\n21\n100,0%\n28,6%\n\n\nK5\nSkrining kesehatan jiwa\n21\n100,0%\n33,3%\n\n\nK5\nDenyut jantung janin (DJJ)\n21\n100,0%\n100,0%\n\n\nK5\nKonseling kehamilan\n21\n100,0%\n100,0%\n\n\nK5\nPengukuran berat badan\n21\n100,0%\n100,0%\n\n\nK5\nPengukuran tinggi fundus\n21\n100,0%\n100,0%\n\n\nK5\nStatus tekanan darah\n21\n100,0%\n100,0%\n\n\nK5\nSuplementasi zat besi\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK6\nDenyut jantung janin (DJJ)\n17\n100,0%\n100,0%\n\n\nK6\nKonseling kehamilan\n17\n100,0%\n100,0%\n\n\nK6\nPengukuran berat badan\n17\n100,0%\n100,0%\n\n\nK6\nPengukuran tinggi fundus\n17\n100,0%\n100,0%\n\n\nK6\nStatus tekanan darah\n17\n100,0%\n100,0%\n\n\nK6\nSkrining kesehatan jiwa\nDisamarkan\nDisamarkan\nDisamarkan\n\n\nK6\nSuplementasi zat besi\nDisamarkan\nDisamarkan\nDisamarkan\n\n\n\nKolom tekanan darah SIGIZI menyimpan kategori seperti normal, hipertensi, atau hipotensi. Kolom ini tidak menyimpan hasil sistolik dan diastolik yang dapat dinilai secara terpisah. Karena itu, kontrak pemantauan melaporkan satu komponen TEKANAN_DARAH dan mencatat kondisi ini sebagai keterbatasan sumber data."
   },
   {
-    "objectID": "anc.html#data-quality-indicators",
-    "href": "anc.html#data-quality-indicators",
-    "title": "ANC monitoring",
-    "section": "Data-quality indicators",
-    "text": "Data-quality indicators\n\n\n\nIndicator\nCount\nPercent of encounters\n\n\n\n\nMissing ANC date\n5,710\n8.6%\n\n\nUnclassified K visit\n60\n0.1%\n\n\nMissing pregnancy episode\n8,852\n13.4%\n\n\nGestational-age conflict\n21\n0.0%\n\n\nMultiple pregnancy-episode matches\n0\n0.0%\n\n\n\nMissing ANC dates remain in overall data-quality counts but cannot be assigned to a reporting month. Missing pregnancy assignments do not block encounter-level completeness; they do block pregnancy-level K1-K6 coverage."
+    "objectID": "anc.html#indikator-kualitas-data",
+    "href": "anc.html#indikator-kualitas-data",
+    "title": "Pemantauan ANC",
+    "section": "Indikator kualitas data",
+    "text": "Indikator kualitas data\n\n\n\n\n\n\n\n\nIndikator\nJumlah\nPersentase kunjungan\n\n\n\n\nTanggal ANC tidak tersedia\n5.710\n8,6%\n\n\nJenis kunjungan K tidak dapat ditentukan\n60\n0,1%\n\n\nEpisode kehamilan tidak ditemukan\n8.852\n13,4%\n\n\nKetidaksesuaian usia kehamilan\n21\n0,0%\n\n\nTerhubung dengan lebih dari satu episode kehamilan\n0\n0,0%\n\n\n\nRekam tanpa tanggal ANC tetap masuk dalam jumlah kualitas data keseluruhan, tetapi tidak dapat ditempatkan pada bulan pelaporan. Kunjungan tanpa episode kehamilan tetap dapat dinilai kelengkapan tingkat kunjungannya, tetapi tidak dapat digunakan untuk menghitung cakupan K1–K6 tingkat kehamilan."
   },
   {
-    "objectID": "anc.html#current-analytical-boundary",
-    "href": "anc.html#current-analytical-boundary",
-    "title": "ANC monitoring",
-    "section": "Current analytical boundary",
-    "text": "Current analytical boundary\n\nDAFTAR_IBU_HAMIL is pregnancy-registration evidence, not an ANC encounter.\nVisit type is assigned from recorded gestational age, falling back to ANC date minus HPHT where available.\nK1-K6 are non-overlapping gestational-age windows; they are not assigned by chronological row number.\nAnaemia, pre-eclampsia, and KEK management are conditional components and are excluded from the headline denominator until eligibility rules are approved.\nFacility-month results remain available in v_sigizi_anc_component_monitoring; the public overview uses a district rollup calculated before small-cell suppression."
+    "objectID": "anc.html#batasan-analisis-saat-ini",
+    "href": "anc.html#batasan-analisis-saat-ini",
+    "title": "Pemantauan ANC",
+    "section": "Batasan analisis saat ini",
+    "text": "Batasan analisis saat ini\n\nDAFTAR_IBU_HAMIL merupakan bukti pendaftaran kehamilan, bukan kunjungan ANC.\nJenis kunjungan ditentukan dari usia kehamilan yang tercatat, dengan selisih tanggal ANC dan HPHT sebagai nilai cadangan jika tersedia.\nK1–K6 menggunakan periode usia kehamilan yang tidak bertumpang tindih, bukan urutan kronologis baris data.\nTata laksana anemia, preeklampsia, dan KEK merupakan komponen kondisional dan belum dimasukkan dalam denominator utama sampai aturan kelayakannya disetujui.\nHasil tingkat fasilitas dan bulan tersedia dalam v_sigizi_anc_component_monitoring; ringkasan publik memakai agregat tingkat kabupaten yang dihitung sebelum penyamaran jumlah kecil."
   },
   {
     "objectID": "pnc.html",
     "href": "pnc.html",
-    "title": "PNC monitoring",
+    "title": "Pemantauan PNC",
     "section": "",
-    "text": "Data pending: PNC dates and visit-label contracts must be verified before counts are published."
+    "text": "Data belum tersedia: kontrak tanggal PNC dan label kunjungan harus diverifikasi sebelum angka dipublikasikan."
   },
   {
-    "objectID": "pnc.html#planned-measures",
-    "href": "pnc.html#planned-measures",
-    "title": "PNC monitoring",
-    "section": "Planned measures",
-    "text": "Planned measures\n\nPNC source-record volume by date and facility\nPNC visit counts and KF1–KF4 coverage\nFirst and latest PNC dates\nPregnancy and delivery linkage completeness\nSIGIZI KOHORT_NIFAS and EPUS PNC source availability"
+    "objectID": "pnc.html#indikator-yang-direncanakan",
+    "href": "pnc.html#indikator-yang-direncanakan",
+    "title": "Pemantauan PNC",
+    "section": "Indikator yang direncanakan",
+    "text": "Indikator yang direncanakan\n\nVolume rekam sumber PNC menurut tanggal dan fasilitas\nJumlah kunjungan PNC dan cakupan KF1–KF4\nTanggal PNC pertama dan terakhir\nKelengkapan hubungan dengan kehamilan dan persalinan\nKetersediaan sumber KOHORT_NIFAS SIGIZI dan PNC EPUS"
   },
   {
-    "objectID": "pnc.html#analytical-rule",
-    "href": "pnc.html#analytical-rule",
-    "title": "PNC monitoring",
-    "section": "Analytical rule",
-    "text": "Analytical rule\nSIGIZI PNC details require a curated adapter with an explicit visit date and grain. The public website will not extract clinical fields from source JSON."
+    "objectID": "pnc.html#aturan-analisis",
+    "href": "pnc.html#aturan-analisis",
+    "title": "Pemantauan PNC",
+    "section": "Aturan analisis",
+    "text": "Aturan analisis\nRincian PNC SIGIZI memerlukan adaptor terkurasi dengan tanggal kunjungan dan tingkat data yang eksplisit. Situs publik tidak akan mengambil kolom klinis langsung dari JSON sumber."
   }
 ]

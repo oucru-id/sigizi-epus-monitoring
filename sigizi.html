@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id" xml:lang="id"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Aggregate ANC, INC, and PNC monitoring from retained SIGIZI records">
+<meta name="description" content="Pemantauan agregat ANC, INC, dan PNC dari rekam SIGIZI yang dipertahankan">
 
-<title>SIGIZI monitoring – SIGIZI–EPUS Monitoring</title>
+<title>Pemantauan SIGIZI – Pemantauan SIGIZI–EPUS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,17 +56,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Tidak ada hasil",
+    "search-matching-documents-text": "dokumen cocok",
+    "search-copy-link-title": "Salin tautan untuk mencari",
+    "search-hide-matches-text": "Sembunyikan kecocokan lainnya",
+    "search-more-match-text": "kecocokan lainnya di dokumen ini",
+    "search-more-matches-text": "kecocokan lainnya di dokumen ini",
+    "search-clear-button-title": "Hapus",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Batal",
+    "search-submit-button-title": "Kirim",
+    "search-label": "Mencari"
   }
 }</script>
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
@@ -87,18 +87,18 @@ ul.task-list li input[type="checkbox"] {
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">SIGIZI–EPUS Monitoring</span>
+    <span class="navbar-title">Pemantauan SIGIZI–EPUS</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Mencari"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alihkan navigasi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Overview</span></a>
+<span class="menu-text">Ringkasan</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./sigizi.html" aria-current="page"> 
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./source-quality.html"> 
-<span class="menu-text">Source quality</span></a>
+<span class="menu-text">Kualitas sumber</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -133,29 +133,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Di halaman ini</h2>
    
   <ul>
-  <li><a href="#monitoring-pathway" id="toc-monitoring-pathway" class="nav-link active" data-scroll-target="#monitoring-pathway">Monitoring pathway</a></li>
-  <li><a href="#source-roles" id="toc-source-roles" class="nav-link" data-scroll-target="#source-roles">Source roles</a></li>
-  <li><a href="#anc-inc-and-pnc-readiness" id="toc-anc-inc-and-pnc-readiness" class="nav-link" data-scroll-target="#anc-inc-and-pnc-readiness">ANC, INC, and PNC readiness</a></li>
-  <li><a href="#retained-source-monitoring" id="toc-retained-source-monitoring" class="nav-link" data-scroll-target="#retained-source-monitoring">Retained source monitoring</a></li>
-  <li><a href="#deleted-pregnancy-exclusion" id="toc-deleted-pregnancy-exclusion" class="nav-link" data-scroll-target="#deleted-pregnancy-exclusion">Deleted-pregnancy exclusion</a></li>
-  <li><a href="#denominator-rules" id="toc-denominator-rules" class="nav-link" data-scroll-target="#denominator-rules">Denominator rules</a></li>
+  <li><a href="#alur-pemantauan" id="toc-alur-pemantauan" class="nav-link active" data-scroll-target="#alur-pemantauan">Alur pemantauan</a></li>
+  <li><a href="#peran-sumber" id="toc-peran-sumber" class="nav-link" data-scroll-target="#peran-sumber">Peran sumber</a></li>
+  <li><a href="#kesiapan-anc-inc-dan-pnc" id="toc-kesiapan-anc-inc-dan-pnc" class="nav-link" data-scroll-target="#kesiapan-anc-inc-dan-pnc">Kesiapan ANC, INC, dan PNC</a></li>
+  <li><a href="#pemantauan-sumber-yang-dipertahankan" id="toc-pemantauan-sumber-yang-dipertahankan" class="nav-link" data-scroll-target="#pemantauan-sumber-yang-dipertahankan">Pemantauan sumber yang dipertahankan</a></li>
+  <li><a href="#pengecualian-kehamilan-yang-dihapus" id="toc-pengecualian-kehamilan-yang-dihapus" class="nav-link" data-scroll-target="#pengecualian-kehamilan-yang-dihapus">Pengecualian kehamilan yang dihapus</a></li>
+  <li><a href="#aturan-denominator" id="toc-aturan-denominator" class="nav-link" data-scroll-target="#aturan-denominator">Aturan denominator</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/sigizi.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/sigizi.qmd" class="toc-action"><i class="bi bi-github"></i>Lihat sumber</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Laporkan isu</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SIGIZI monitoring</h1>
+<h1 class="title">Pemantauan SIGIZI</h1>
 </div>
 
 <div>
   <div class="description">
-    Aggregate ANC, INC, and PNC monitoring from retained SIGIZI records
+    Pemantauan agregat ANC, INC, dan PNC dari rekam SIGIZI yang dipertahankan
   </div>
 </div>
 
@@ -173,33 +173,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="status-banner">
-<p><strong>Aggregate-only section:</strong> the source roles and exclusion rules below follow the upstream <code>birth-outcome</code> pipeline. Live figures appear only when the three approved monitoring views are deployed and <code>MONITORING_DATA_SOURCE=bigquery</code> is enabled during a controlled render.</p>
+<p><strong>Bagian agregat:</strong> peran sumber dan aturan pengecualian di bawah mengikuti pipeline hulu <code>birth-outcome</code>. Angka aktual hanya muncul ketika ketiga view pemantauan tersedia dan <code>MONITORING_DATA_SOURCE=bigquery</code> diaktifkan saat render terkendali.</p>
 </div>
-<section id="monitoring-pathway" class="level2">
-<h2 class="anchored" data-anchor-id="monitoring-pathway">Monitoring pathway</h2>
+<section id="alur-pemantauan" class="level2">
+<h2 class="anchored" data-anchor-id="alur-pemantauan">Alur pemantauan</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A[Five cleaned SIGIZI clinical sources] --&gt; B{Pregnancy-specific\ndelection check}
+  A[Lima sumber klinis SIGIZI yang telah dibersihkan] --&gt; B{Pemeriksaan penghapusan\nspesifik kehamilan}
   H[Daftar ibu hamil hapus] --&gt; B
-  B --&gt;|Retained records| C[Geography correction]
-  B --&gt;|Matched deleted pregnancy| D[Restricted exclusion audit]
-  C --&gt; E[Canonical SIGIZI pregnancy episodes]
-  E --&gt; F[Aggregate ANC / INC / PNC monitoring views]
-  F --&gt; G[Public Quarto site]
+  B --&gt;|Rekam dipertahankan| C[Koreksi wilayah]
+  B --&gt;|Cocok dengan kehamilan dihapus| D[Audit pengecualian terbatas]
+  C --&gt; E[Episode kehamilan SIGIZI kanonis]
+  E --&gt; F[View pemantauan agregat ANC / INC / PNC]
+  F --&gt; G[Situs publik Quarto]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>The deletion registry is an exclusion reference. It is not unioned into ANC, INC, PNC, pregnancy, or delivery totals.</p>
+<p>Register penghapusan merupakan referensi pengecualian. Register ini tidak digabungkan ke dalam jumlah ANC, INC, PNC, kehamilan, atau persalinan.</p>
 </section>
-<section id="source-roles" class="level2">
-<h2 class="anchored" data-anchor-id="source-roles">Source roles</h2>
+<section id="peran-sumber" class="level2">
+<h2 class="anchored" data-anchor-id="peran-sumber">Peran sumber</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -209,87 +209,87 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>SIGIZI source</th>
-<th>Pipeline value</th>
-<th>Monitoring use</th>
-<th>Current boundary</th>
+<th>Sumber SIGIZI</th>
+<th>Nilai pipeline</th>
+<th>Penggunaan pemantauan</th>
+<th>Batasan saat ini</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Ibu hamil</td>
 <td><code>DAFTAR_IBU_HAMIL</code></td>
-<td>ANC pregnancy/registration evidence</td>
-<td>Do not treat a registration row as an ANC encounter unless an ANC date exists</td>
+<td>Bukti kehamilan/pendaftaran ANC</td>
+<td>Baris pendaftaran bukan kunjungan ANC kecuali memiliki tanggal ANC</td>
 </tr>
 <tr class="even">
 <td>Pemeriksaan ANC</td>
 <td><code>ANC</code></td>
-<td>ANC examination evidence</td>
-<td>Explicit ANC dates support visit monitoring</td>
+<td>Bukti pemeriksaan ANC</td>
+<td>Tanggal ANC eksplisit mendukung pemantauan kunjungan</td>
 </tr>
 <tr class="odd">
 <td>Kohort ibu</td>
 <td><code>KOHORT_IBU</code></td>
-<td>INC and delivery evidence</td>
-<td>Delivery measures require a valid delivery date</td>
+<td>Bukti INC dan persalinan</td>
+<td>Indikator persalinan memerlukan tanggal persalinan valid</td>
 </tr>
 <tr class="even">
 <td>Kohort nifas</td>
 <td><code>KOHORT_NIFAS</code></td>
-<td>INC evidence and future PNC monitoring</td>
-<td>PNC visits/KF stages require a curated visit-level adapter</td>
+<td>Bukti INC dan calon pemantauan PNC</td>
+<td>Kunjungan/tahap KF memerlukan adaptor tingkat kunjungan</td>
 </tr>
 <tr class="odd">
 <td>Daftar ibu</td>
 <td><code>DAFTAR_IBU</code></td>
-<td>Pregnancy registry and source-presence context</td>
-<td>Not an ANC, INC, or PNC event numerator by itself</td>
+<td>Register kehamilan dan konteks keberadaan sumber</td>
+<td>Bukan numerator kejadian ANC, INC, atau PNC secara tersendiri</td>
 </tr>
 <tr class="even">
 <td>Daftar ibu hamil hapus</td>
 <td><code>vs_sigizi_bumil_hapus</code></td>
-<td>Pregnancy-specific exclusion only</td>
-<td>Never clinical evidence and never a service numerator</td>
+<td>Pengecualian spesifik kehamilan</td>
+<td>Bukan bukti klinis dan bukan numerator layanan</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="anc-inc-and-pnc-readiness" class="level2">
-<h2 class="anchored" data-anchor-id="anc-inc-and-pnc-readiness">ANC, INC, and PNC readiness</h2>
+<section id="kesiapan-anc-inc-dan-pnc" class="level2">
+<h2 class="anchored" data-anchor-id="kesiapan-anc-inc-dan-pnc">Kesiapan ANC, INC, dan PNC</h2>
 <div class="metric-grid">
 <section id="anc" class="level3 metric-card">
 <h3 class="anchored" data-anchor-id="anc">ANC</h3>
-<p>Uses retained <code>DAFTAR_IBU_HAMIL</code> and <code>ANC</code> records. Source-record volume, pregnancies with source evidence, and pregnancies with explicit ANC dates stay as separate measures.</p>
+<p>Menggunakan rekam <code>DAFTAR_IBU_HAMIL</code> dan <code>ANC</code> yang dipertahankan. Volume rekam sumber, kehamilan dengan bukti sumber, dan kehamilan dengan tanggal ANC eksplisit tetap menjadi indikator yang berbeda.</p>
 </section>
 <section id="inc" class="level3 metric-card">
 <h3 class="anchored" data-anchor-id="inc">INC</h3>
-<p>Uses retained <code>KOHORT_IBU</code> and <code>KOHORT_NIFAS</code> records. Source rows, pregnancies with delivery evidence, and canonical delivery events must not be combined into one denominator.</p>
+<p>Menggunakan rekam <code>KOHORT_IBU</code> dan <code>KOHORT_NIFAS</code> yang dipertahankan. Baris sumber, kehamilan dengan bukti persalinan, dan kejadian persalinan kanonis tidak digabungkan dalam satu denominator.</p>
 </section>
 <section id="pnc" class="level3 metric-card">
 <h3 class="anchored" data-anchor-id="pnc">PNC</h3>
-<p><code>KOHORT_NIFAS</code> confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.</p>
+<p><code>KOHORT_NIFAS</code> memastikan ketersediaan sumber. Cakupan KF1–KF4 menunggu tanggal kunjungan PNC dan kontrak tahap kunjungan yang telah dikurasi.</p>
 </section>
 </div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
+<col style="width: 6%">
 <col style="width: 8%">
-<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 14%">
 <col style="width: 13%">
-<col style="width: 11%">
 <col style="width: 34%">
-<col style="width: 11%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">monitoring_stage</th>
-<th style="text-align: right;">source_record_count</th>
-<th style="text-align: right;">pregnancy_evidence_count</th>
-<th style="text-align: right;">explicit_event_pregnancy_count</th>
-<th style="text-align: left;">measure_status</th>
-<th style="text-align: left;">denominator_definition</th>
-<th style="text-align: left;">has_suppressed_small_count</th>
+<th style="text-align: left;">Tahap pemantauan</th>
+<th style="text-align: right;">Jumlah rekam sumber</th>
+<th style="text-align: right;">Jumlah bukti kehamilan</th>
+<th style="text-align: right;">Kehamilan dengan kejadian eksplisit</th>
+<th style="text-align: left;">Status indikator</th>
+<th style="text-align: left;">Definisi denominator</th>
+<th style="text-align: left;">Ada jumlah kecil yang disamarkan</th>
 </tr>
 </thead>
 <tbody>
@@ -298,37 +298,37 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">79270</td>
 <td style="text-align: right;">15239</td>
 <td style="text-align: right;">12275</td>
-<td style="text-align: left;">SOURCE_AND_PREGNANCY_READY</td>
-<td style="text-align: left;">DAFTAR_IBU_HAMIL + ANC retained records; canonical SIGIZI pregnancy episodes</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">SUMBER_DAN_KEHAMILAN_SIAP</td>
+<td style="text-align: left;">Rekam DAFTAR_IBU_HAMIL + ANC yang dipertahankan; episode kehamilan SIGIZI kanonis</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">INC</td>
 <td style="text-align: right;">59967</td>
 <td style="text-align: right;">25396</td>
 <td style="text-align: right;">7338</td>
-<td style="text-align: left;">SOURCE_AND_PREGNANCY_READY</td>
-<td style="text-align: left;">KOHORT_IBU + KOHORT_NIFAS retained records; pregnancies with delivery evidence</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">SUMBER_DAN_KEHAMILAN_SIAP</td>
+<td style="text-align: left;">Rekam KOHORT_IBU + KOHORT_NIFAS yang dipertahankan; kehamilan dengan bukti persalinan</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">PNC</td>
 <td style="text-align: right;">29771</td>
 <td style="text-align: right;">19647</td>
 <td style="text-align: right;">NA</td>
-<td style="text-align: left;">PNC_VISIT_ADAPTER_REQUIRED</td>
-<td style="text-align: left;">KOHORT_NIFAS source presence only; KF1-KF4 is not yet defined</td>
+<td style="text-align: left;">ADAPTOR_KUNJUNGAN_PNC_DIPERLUKAN</td>
+<td style="text-align: left;">Hanya keberadaan sumber KOHORT_NIFAS; KF1–KF4 belum ditetapkan</td>
 <td style="text-align: left;">NA</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="retained-source-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="retained-source-monitoring">Retained source monitoring</h2>
-<p>Counts below, when enabled, come from <code>t_sigizi_source_records</code> after the deletion gate. Small non-zero counts below five are suppressed in the public views.</p>
+<section id="pemantauan-sumber-yang-dipertahankan" class="level2">
+<h2 class="anchored" data-anchor-id="pemantauan-sumber-yang-dipertahankan">Pemantauan sumber yang dipertahankan</h2>
+<p>Jika diaktifkan, jumlah di bawah berasal dari <code>t_sigizi_source_records</code> setelah gerbang penghapusan. Jumlah bukan nol di bawah lima disamarkan pada view publik.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 4%">
+<col style="width: 3%">
 <col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 15%">
@@ -336,35 +336,35 @@ ul.task-list li input[type="checkbox"] {
 <col style="width: 3%">
 <col style="width: 3%">
 <col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 5%">
-<col style="width: 4%">
 <col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">source_table</th>
-<th style="text-align: left;">source_label</th>
-<th style="text-align: left;">monitoring_domain</th>
-<th style="text-align: left;">monitoring_role</th>
-<th style="text-align: left;">supports_anc</th>
-<th style="text-align: left;">supports_inc</th>
-<th style="text-align: left;">supports_pnc</th>
-<th style="text-align: right;">active_record_count</th>
-<th style="text-align: right;">excluded_record_count</th>
-<th style="text-align: right;">record_count_before_exclusion</th>
-<th style="text-align: right;">records_with_pregnancy_timing</th>
-<th style="text-align: right;">records_with_explicit_service_date</th>
-<th style="text-align: right;">records_with_location</th>
-<th style="text-align: right;">records_with_valid_primary_identifier</th>
-<th style="text-align: left;">earliest_evidence_date</th>
-<th style="text-align: left;">latest_evidence_date</th>
-<th style="text-align: left;">has_suppressed_small_count</th>
+<th style="text-align: left;">Sumber data</th>
+<th style="text-align: left;">Nama sumber</th>
+<th style="text-align: left;">Domain pemantauan</th>
+<th style="text-align: left;">Peran dalam pemantauan</th>
+<th style="text-align: left;">Mendukung ANC</th>
+<th style="text-align: left;">Mendukung INC</th>
+<th style="text-align: left;">Mendukung PNC</th>
+<th style="text-align: right;">Jumlah rekam aktif</th>
+<th style="text-align: right;">Jumlah rekam dikecualikan</th>
+<th style="text-align: right;">Jumlah sebelum pengecualian</th>
+<th style="text-align: right;">Rekam dengan waktu kehamilan</th>
+<th style="text-align: right;">Rekam dengan tanggal layanan</th>
+<th style="text-align: right;">Rekam dengan lokasi</th>
+<th style="text-align: right;">Rekam dengan identitas utama valid</th>
+<th style="text-align: left;">Tanggal bukti paling awal</th>
+<th style="text-align: left;">Tanggal bukti paling akhir</th>
+<th style="text-align: left;">Ada jumlah kecil yang disamarkan</th>
 </tr>
 </thead>
 <tbody>
@@ -372,10 +372,10 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">DAFTAR_IBU_HAMIL</td>
 <td style="text-align: left;">Ibu hamil</td>
 <td style="text-align: left;">ANC</td>
-<td style="text-align: left;">Pregnancy registration/evidence; not an ANC encounter by itself</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Bukti pendaftaran/kehamilan; bukan kunjungan ANC secara tersendiri</td>
+<td style="text-align: left;">Ya</td>
+<td style="text-align: left;">Tidak</td>
+<td style="text-align: left;">Tidak</td>
 <td style="text-align: right;">13123</td>
 <td style="text-align: right;">3617</td>
 <td style="text-align: right;">16740</td>
@@ -385,16 +385,16 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">12825</td>
 <td style="text-align: left;">0023-04-12</td>
 <td style="text-align: left;">2029-06-25</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ANC</td>
 <td style="text-align: left;">Pemeriksaan ANC</td>
 <td style="text-align: left;">ANC</td>
-<td style="text-align: left;">Explicit ANC examination evidence</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Bukti eksplisit pemeriksaan ANC</td>
+<td style="text-align: left;">Ya</td>
+<td style="text-align: left;">Tidak</td>
+<td style="text-align: left;">Tidak</td>
 <td style="text-align: right;">66147</td>
 <td style="text-align: right;">19917</td>
 <td style="text-align: right;">86064</td>
@@ -404,16 +404,16 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">65154</td>
 <td style="text-align: left;">2024-03-20</td>
 <td style="text-align: left;">2026-09-18</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">KOHORT_IBU</td>
 <td style="text-align: left;">Kohort ibu</td>
 <td style="text-align: left;">INC</td>
-<td style="text-align: left;">INC and delivery evidence</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Bukti INC dan persalinan</td>
+<td style="text-align: left;">Tidak</td>
+<td style="text-align: left;">Ya</td>
+<td style="text-align: left;">Tidak</td>
 <td style="text-align: right;">30196</td>
 <td style="text-align: right;">3869</td>
 <td style="text-align: right;">34065</td>
@@ -423,16 +423,16 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">23503</td>
 <td style="text-align: left;">0006-08-19</td>
 <td style="text-align: left;">2033-08-17</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">KOHORT_NIFAS</td>
 <td style="text-align: left;">Kohort nifas</td>
 <td style="text-align: left;">INC / PNC</td>
-<td style="text-align: left;">INC evidence; PNC visits await a curated visit-level adapter</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Bukti INC; kunjungan PNC menunggu adaptor tingkat kunjungan</td>
+<td style="text-align: left;">Tidak</td>
+<td style="text-align: left;">Ya</td>
+<td style="text-align: left;">Ya</td>
 <td style="text-align: right;">29771</td>
 <td style="text-align: right;">3430</td>
 <td style="text-align: right;">33201</td>
@@ -442,16 +442,16 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">28282</td>
 <td style="text-align: left;">0006-07-18</td>
 <td style="text-align: left;">2034-07-19</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DAFTAR_IBU</td>
 <td style="text-align: left;">Daftar ibu</td>
-<td style="text-align: left;">CONTEXT</td>
-<td style="text-align: left;">Pregnancy registry and source-presence context</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">KONTEKS</td>
+<td style="text-align: left;">Register kehamilan dan konteks keberadaan sumber</td>
+<td style="text-align: left;">Tidak</td>
+<td style="text-align: left;">Tidak</td>
+<td style="text-align: left;">Tidak</td>
 <td style="text-align: right;">33954</td>
 <td style="text-align: right;">4136</td>
 <td style="text-align: right;">38090</td>
@@ -461,40 +461,40 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">30723</td>
 <td style="text-align: left;">0001-01-01</td>
 <td style="text-align: left;">2027-03-11</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="deleted-pregnancy-exclusion" class="level2">
-<h2 class="anchored" data-anchor-id="deleted-pregnancy-exclusion">Deleted-pregnancy exclusion</h2>
-<p>A SIGIZI clinical row is excluded only when it matches the same pregnancy in the deletion registry:</p>
+<section id="pengecualian-kehamilan-yang-dihapus" class="level2">
+<h2 class="anchored" data-anchor-id="pengecualian-kehamilan-yang-dihapus">Pengecualian kehamilan yang dihapus</h2>
+<p>Baris klinis SIGIZI dikecualikan hanya ketika cocok dengan kehamilan yang sama di dalam register penghapusan:</p>
 <ol type="1">
-<li>Matching usable identifier plus an exactly matching pregnancy anchor; or</li>
-<li>when an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.</li>
+<li>Identitas yang dapat digunakan dan acuan kehamilan sama persis; atau</li>
+<li>jika identitas tidak tersedia pada salah satu sisi, nama ternormalisasi, tanggal lahir ibu, dan acuan kehamilan harus sama persis.</li>
 </ol>
-<p>The source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.</p>
+<p>Acuan sumber menggunakan HPHT, dengan HPL dikurangi 280 hari sebagai nilai cadangan jika HPHT tidak tersedia. Konflik identitas yang valid mencegah pencocokan cadangan berbasis nama. Kehamilan lain dari ibu yang sama tetap memenuhi syarat, dan bukti independen dari EPUS atau rumah sakit tidak dihapus.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 10%">
 <col style="width: 12%">
 <col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 15%">
 <col style="width: 11%">
-<col style="width: 17%">
-<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">exclusion_refreshed_at</th>
-<th style="text-align: left;">exclusion_rule_version</th>
-<th style="text-align: right;">deletion_registry_count</th>
-<th style="text-align: right;">source_rows_before_exclusion</th>
-<th style="text-align: right;">excluded_source_record_count</th>
-<th style="text-align: right;">active_source_record_count</th>
-<th style="text-align: right;">source_records_without_pregnancy_anchor</th>
-<th style="text-align: left;">has_suppressed_small_count</th>
+<th style="text-align: left;">Waktu pembaruan pengecualian</th>
+<th style="text-align: left;">Versi aturan pengecualian</th>
+<th style="text-align: right;">Jumlah register penghapusan</th>
+<th style="text-align: right;">Baris sumber sebelum pengecualian</th>
+<th style="text-align: right;">Rekam sumber dikecualikan</th>
+<th style="text-align: right;">Rekam sumber aktif</th>
+<th style="text-align: right;">Rekam tanpa acuan kehamilan</th>
+<th style="text-align: left;">Ada jumlah kecil yang disamarkan</th>
 </tr>
 </thead>
 <tbody>
@@ -506,22 +506,22 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">34969</td>
 <td style="text-align: right;">173191</td>
 <td style="text-align: right;">34350</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Tidak</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="denominator-rules" class="level2">
-<h2 class="anchored" data-anchor-id="denominator-rules">Denominator rules</h2>
+<section id="aturan-denominator" class="level2">
+<h2 class="anchored" data-anchor-id="aturan-denominator">Aturan denominator</h2>
 <ul>
-<li>Raw/retained source records measure source volume.</li>
-<li><code>t_sigizi_pregnancy_episode_v3_3</code> measures canonical SIGIZI pregnancies.</li>
-<li>An ANC registration is not automatically an ANC encounter.</li>
-<li>An INC source record, a pregnancy with delivery evidence, and a canonical delivery event are different grains.</li>
-<li>PNC visits and KF1-KF4 cannot be reported until the visit-level adapter is explicitly defined.</li>
-<li>All displayed tables are aggregate-only and pass the public-column guard before being embedded in the static site.</li>
+<li>Rekam sumber mentah/dipertahankan mengukur volume sumber.</li>
+<li><code>t_sigizi_pregnancy_episode_v3_3</code> mengukur kehamilan SIGIZI kanonis.</li>
+<li>Pendaftaran ANC tidak otomatis menjadi kunjungan ANC.</li>
+<li>Rekam sumber INC, kehamilan dengan bukti persalinan, dan kejadian persalinan kanonis merupakan tingkat data yang berbeda.</li>
+<li>Kunjungan PNC dan KF1–KF4 belum dapat dilaporkan sampai adaptor tingkat kunjungannya ditetapkan.</li>
+<li>Semua tabel yang ditampilkan hanya berisi agregat dan melewati pemeriksaan kolom publik sebelum dimasukkan ke situs statis.</li>
 </ul>
-<p>See the <a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/docs/sigizi-monitoring-contract.md">SIGIZI monitoring contract</a> for the SQL objects, deployment order, and validation boundary.</p>
+<p>Lihat <a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/docs/sigizi-monitoring-contract.md">kontrak pemantauan SIGIZI</a> untuk objek SQL, urutan penerapan, dan batasan validasi.</p>
 
 
 </section>
@@ -552,12 +552,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Disalin!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Disalin!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -936,13 +936,13 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Aggregate monitoring only — no patient identifiers</p>
+<p>Hanya pemantauan agregat — tanpa identitas pasien</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/sigizi.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/sigizi.qmd" class="toc-action"><i class="bi bi-github"></i>Lihat sumber</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Laporkan isu</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Data definitions are governed by the birth-outcome pipeline</p>
+<p>Definisi data mengikuti pipeline birth-outcome</p>
 </div>
   </div>
 </footer>
