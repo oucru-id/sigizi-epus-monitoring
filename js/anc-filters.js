@@ -22,11 +22,11 @@
     .replaceAll("'", "&#039;");
 
   const count = (value) => value == null
-    ? "Disamarkan"
+    ? "Tidak tersedia"
     : new Intl.NumberFormat("id-ID", { maximumFractionDigits: 0 }).format(value);
 
   const percentage = (value) => value == null
-    ? "Disamarkan"
+    ? "Tidak berlaku"
     : `${new Intl.NumberFormat("id-ID", {
       minimumFractionDigits: 1,
       maximumFractionDigits: 1
@@ -89,10 +89,9 @@
       </div>`;
   };
 
-  const warning = () => `
+  const noData = () => `
     <div class="dashboard-filter-warning">
-      Hasil untuk kombinasi filter ini disamarkan karena terdapat jumlah
-      bukan nol di bawah lima. Pilih “Semua bulan” atau wilayah yang lebih luas.
+      Tidak ada data untuk kombinasi filter ini.
     </div>`;
 
   const matches = (row, month, facility) =>
@@ -118,10 +117,10 @@
         : `Puskesmas ${selectedPuskesmas}`;
     context.textContent = `Menampilkan ${monthLabel(selectedMonth).toLowerCase()} dan ${facilityLabel}.`;
 
-    if (!summary || summary.has_suppressed_small_count) {
+    if (!summary) {
       [scorecards, statusChart, visitChart, kChart, kTable]
         .filter(Boolean)
-        .forEach((element) => { element.innerHTML = warning(); });
+        .forEach((element) => { element.innerHTML = noData(); });
       return;
     }
 
@@ -173,8 +172,8 @@
 
     const visits = visitData.filter((row) =>
       matches(row, selectedMonth, selectedPuskesmas));
-    if (!visits.length || visits.some((row) => row.has_suppressed_small_count)) {
-      visitChart.innerHTML = warning();
+    if (!visits.length) {
+      visitChart.innerHTML = noData();
     } else {
       const byCount = new Map(visits.map((row) => [Number(row.completed_k_count), row]));
       visitChart.innerHTML = `<div class="monitor-bar-chart">${[0, 1, 2, 3, 4, 5, 6]
@@ -194,8 +193,8 @@
     const stages = kData
       .filter((row) => matches(row, selectedMonth, selectedPuskesmas))
       .sort((left, right) => left.visit_order - right.visit_order);
-    if (!stages.length || stages.some((row) => row.has_suppressed_small_count)) {
-      kChart.innerHTML = warning();
+    if (!stages.length) {
+      kChart.innerHTML = noData();
       kTable.innerHTML = "";
     } else {
       kChart.innerHTML = `<div class="monitor-bar-chart">${stages.map((row) =>
