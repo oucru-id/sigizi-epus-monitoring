@@ -148,6 +148,59 @@
   margin-top: 0.5rem;
 }
 
+.dashboard-filter-panel {
+  align-items: end;
+  background: #f7fafc;
+  border: 1px solid var(--monitor-border);
+  border-radius: 0.55rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(11rem, 1fr)) auto;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+}
+
+.dashboard-filter-field label {
+  color: var(--monitor-navy);
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.dashboard-filter-field select {
+  background: white;
+  border: 1px solid #9eb6c7;
+  border-radius: 0.35rem;
+  color: var(--monitor-navy);
+  min-height: 2.5rem;
+  padding: 0.45rem 0.65rem;
+  width: 100%;
+}
+
+.dashboard-filter-reset {
+  background: var(--monitor-navy);
+  border: 0;
+  border-radius: 0.35rem;
+  color: white;
+  cursor: pointer;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.9rem;
+}
+
+.dashboard-filter-context {
+  color: #4d6173;
+  font-size: 0.86rem;
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.dashboard-filter-warning {
+  background: #fff5e6;
+  border-left: 0.3rem solid #d6a51d;
+  padding: 0.7rem 0.85rem;
+}
+
 @media (max-width: 767.98px) {
   .metric-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -160,6 +213,14 @@
   .monitor-bar-row {
     gap: 0.4rem;
     grid-template-columns: minmax(5.5rem, 1fr) minmax(7rem, 2fr) 3.5rem;
+  }
+
+  .dashboard-filter-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-filter-context {
+    grid-column: 1;
   }
 
   .status-banner {
