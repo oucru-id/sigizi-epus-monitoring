@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Antenatal care monitoring across SIGIZI and EPUS">
+<meta name="description" content="SIGIZI antenatal encounter completeness and service completion">
 
 <title>ANC monitoring – SIGIZI–EPUS Monitoring</title>
 <style>
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,6 +81,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">SIGIZI–EPUS Monitoring</span>
     </a>
@@ -130,8 +133,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#planned-measures" id="toc-planned-measures" class="nav-link active" data-scroll-target="#planned-measures">Planned measures</a></li>
-  <li><a href="#analytical-rule" id="toc-analytical-rule" class="nav-link" data-scroll-target="#analytical-rule">Analytical rule</a></li>
+  <li><a href="#headline-indicators" id="toc-headline-indicators" class="nav-link active" data-scroll-target="#headline-indicators">Headline indicators</a></li>
+  <li><a href="#latest-monthly-component-results" id="toc-latest-monthly-component-results" class="nav-link" data-scroll-target="#latest-monthly-component-results">Latest monthly component results</a></li>
+  <li><a href="#data-quality-indicators" id="toc-data-quality-indicators" class="nav-link" data-scroll-target="#data-quality-indicators">Data-quality indicators</a></li>
+  <li><a href="#current-analytical-boundary" id="toc-current-analytical-boundary" class="nav-link" data-scroll-target="#current-analytical-boundary">Current analytical boundary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/blob/main/anc.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/oucru-id/sigizi-epus-monitoring/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -145,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Antenatal care monitoring across SIGIZI and EPUS
+    SIGIZI antenatal encounter completeness and service completion
   </div>
 </div>
 
@@ -163,22 +168,504 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="status-banner">
-<p><strong>Data pending:</strong> ANC aggregate contracts must be verified before counts are published.</p>
+<p><strong>Aggregate ANC monitoring enabled.</strong> Documentation measures whether an answer was recorded; service completion measures whether the recorded answer indicates that the required service was performed.</p>
 </div>
-<section id="planned-measures" class="level2">
-<h2 class="anchored" data-anchor-id="planned-measures">Planned measures</h2>
-<ul>
-<li>SIGIZI and EPUS source-record volume by date and facility</li>
-<li>Canonical ANC encounters without EPUS cross-source double-counting</li>
-<li>K1–K6 coverage using pregnancy-level denominators</li>
-<li>First and latest ANC dates</li>
-<li>Same-day source overlap and unresolved facility discrepancies</li>
-<li>Missing visit date, facility, or pregnancy-assignment indicators</li>
-</ul>
+<section id="headline-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="headline-indicators">Headline indicators</h2>
+<div class="metric-grid">
+<div class="metric-card">
+<h3 class="anchored">
+ANC encounters
+</h3>
+<div class="metric-value">
+66,147
+</div>
+<div class="metric-note">
+Retained, deduplicated SIGIZI ANC source encounters
+</div>
+</div>
+<div class="metric-card">
+<h3 class="anchored">
+Documentation completeness
+</h3>
+<div class="metric-value">
+97.0%
+</div>
+<div class="metric-note">
+Required field opportunities with a recorded answer
+</div>
+</div>
+<div class="metric-card">
+<h3 class="anchored">
+Service completion
+</h3>
+<div class="metric-value">
+79.9%
+</div>
+<div class="metric-note">
+Required field opportunities indicating service performed
+</div>
+</div>
+<div class="metric-card">
+<h3 class="anchored">
+Fully documented encounters
+</h3>
+<div class="metric-value">
+78.2%
+</div>
+<div class="metric-note">
+Encounters with every required answer recorded
+</div>
+</div>
+<div class="metric-card">
+<h3 class="anchored">
+All required services completed
+</h3>
+<div class="metric-value">
+19.3%
+</div>
+<div class="metric-note">
+Encounters indicating completion of every required service
+</div>
+</div>
+<div class="metric-card">
+<h3 class="anchored">
+Pregnancy episode assignment
+</h3>
+<div class="metric-value">
+86.6%
+</div>
+<div class="metric-note">
+Encounters linked to a canonical SIGIZI pregnancy episode
+</div>
+</div>
+</div>
+<p>Documentation completeness is not the same as clinical service completion. For example, <code>Tidak diperiksa</code> is a recorded answer but does not indicate that the examination was performed.</p>
 </section>
-<section id="analytical-rule" class="level2">
-<h2 class="anchored" data-anchor-id="analytical-rule">Analytical rule</h2>
-<p>Raw <code>EPUS_ANC</code> and <code>EPUS_KUNJUNGAN_IBU_HAMIL</code> rows are source-volume measures. They must not be added together to represent unique ANC visits.</p>
+<section id="latest-monthly-component-results" class="level2">
+<h2 class="anchored" data-anchor-id="latest-monthly-component-results">Latest monthly component results</h2>
+<p>District aggregate for <strong>September 2026</strong>. Results are ordered by visit and lowest service completion.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 35%">
+<col style="width: 11%">
+<col style="width: 27%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Visit</th>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Documentation completeness</th>
+<th style="text-align: left;">Service completion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Mid-upper arm circumference (LILA)</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">0.0%</td>
+<td style="text-align: left;">0.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Tetanus immunisation screening</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">58.3%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Ultrasound examination</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">58.3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Mental-health screening</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">62.5%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Haemoglobin test</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">66.7%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Hepatitis B test</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">66.7%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">HIV test</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">66.7%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Syphilis test</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">66.7%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Blood pressure status</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Height</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Pregnancy counselling</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Blood group</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K1</td>
+<td style="text-align: left;">Iron supplementation</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Mental-health screening</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">35.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Fetal heart rate (DJJ)</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">62.2%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Iron supplementation</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">70.3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Blood pressure status</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Fundal height</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Pregnancy counselling</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K2</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Mental-health screening</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">13.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Iron supplementation</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">87.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Blood pressure status</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Fundal height</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Pregnancy counselling</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3</td>
+<td style="text-align: left;">Fetal heart rate (DJJ)</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Mental-health screening</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">27.8%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Blood pressure status</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Fetal heart rate (DJJ)</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Fundal height</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Iron supplementation</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K4</td>
+<td style="text-align: left;">Pregnancy counselling</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Ultrasound examination</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">28.6%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Mental-health screening</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">33.3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Blood pressure status</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Fetal heart rate (DJJ)</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Fundal height</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Pregnancy counselling</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K5</td>
+<td style="text-align: left;">Iron supplementation</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Blood pressure status</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Fetal heart rate (DJJ)</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Fundal height</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Pregnancy counselling</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">100.0%</td>
+<td style="text-align: left;">100.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Iron supplementation</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K6</td>
+<td style="text-align: left;">Mental-health screening</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+<td style="text-align: left;">Suppressed</td>
+</tr>
+</tbody>
+</table>
+<p>The SIGIZI blood-pressure field stores a categorical status such as normal, hypertensive, or hypotensive. It does not contain independently assessable systolic and diastolic measurements, so the monitoring contract reports one <code>TEKANAN_DARAH</code> component and retains this as a source-capture limitation.</p>
+</section>
+<section id="data-quality-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-indicators">Data-quality indicators</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Indicator</th>
+<th style="text-align: left;">Count</th>
+<th style="text-align: left;">Percent of encounters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Missing ANC date</td>
+<td style="text-align: left;">5,710</td>
+<td style="text-align: left;">8.6%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Unclassified K visit</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">0.1%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Missing pregnancy episode</td>
+<td style="text-align: left;">8,852</td>
+<td style="text-align: left;">13.4%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gestational-age conflict</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">0.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Multiple pregnancy-episode matches</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.0%</td>
+</tr>
+</tbody>
+</table>
+<p>Missing ANC dates remain in overall data-quality counts but cannot be assigned to a reporting month. Missing pregnancy assignments do not block encounter-level completeness; they do block pregnancy-level K1-K6 coverage.</p>
+</section>
+<section id="current-analytical-boundary" class="level2">
+<h2 class="anchored" data-anchor-id="current-analytical-boundary">Current analytical boundary</h2>
+<ul>
+<li><code>DAFTAR_IBU_HAMIL</code> is pregnancy-registration evidence, not an ANC encounter.</li>
+<li>Visit type is assigned from recorded gestational age, falling back to ANC date minus HPHT where available.</li>
+<li>K1-K6 are non-overlapping gestational-age windows; they are not assigned by chronological row number.</li>
+<li>Anaemia, pre-eclampsia, and KEK management are conditional components and are excluded from the headline denominator until eligibility rules are approved.</li>
+<li>Facility-month results remain available in <code>v_sigizi_anc_component_monitoring</code>; the public overview uses a district rollup calculated before small-cell suppression.</li>
+</ul>
 
 
 </section>
@@ -235,13 +722,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

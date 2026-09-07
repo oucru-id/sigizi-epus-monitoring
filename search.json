@@ -67,21 +67,21 @@
     "href": "sigizi.html#anc-inc-and-pnc-readiness",
     "title": "SIGIZI monitoring",
     "section": "ANC, INC, and PNC readiness",
-    "text": "ANC, INC, and PNC readiness\n\n\nANC\nUses retained DAFTAR_IBU_HAMIL and ANC records. Source-record volume, pregnancies with source evidence, and pregnancies with explicit ANC dates stay as separate measures.\n\n\nINC\nUses retained KOHORT_IBU and KOHORT_NIFAS records. Source rows, pregnancies with delivery evidence, and canonical delivery events must not be combined into one denominator.\n\n\nPNC\nKOHORT_NIFAS confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.\n\n\n\nData connection pending: Live stage measures are not enabled in this render. The view contract is ready for BigQuery deployment."
+    "text": "ANC, INC, and PNC readiness\n\n\nANC\nUses retained DAFTAR_IBU_HAMIL and ANC records. Source-record volume, pregnancies with source evidence, and pregnancies with explicit ANC dates stay as separate measures.\n\n\nINC\nUses retained KOHORT_IBU and KOHORT_NIFAS records. Source rows, pregnancies with delivery evidence, and canonical delivery events must not be combined into one denominator.\n\n\nPNC\nKOHORT_NIFAS confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmonitoring_stage\nsource_record_count\npregnancy_evidence_count\nexplicit_event_pregnancy_count\nmeasure_status\ndenominator_definition\nhas_suppressed_small_count\n\n\n\n\nANC\n79270\n15239\n12275\nSOURCE_AND_PREGNANCY_READY\nDAFTAR_IBU_HAMIL + ANC retained records; canonical SIGIZI pregnancy episodes\nFALSE\n\n\nINC\n59967\n25396\n7338\nSOURCE_AND_PREGNANCY_READY\nKOHORT_IBU + KOHORT_NIFAS retained records; pregnancies with delivery evidence\nFALSE\n\n\nPNC\n29771\n19647\nNA\nPNC_VISIT_ADAPTER_REQUIRED\nKOHORT_NIFAS source presence only; KF1-KF4 is not yet defined\nNA"
   },
   {
     "objectID": "sigizi.html#retained-source-monitoring",
     "href": "sigizi.html#retained-source-monitoring",
     "title": "SIGIZI monitoring",
     "section": "Retained source monitoring",
-    "text": "Retained source monitoring\nCounts below, when enabled, come from t_sigizi_source_records after the deletion gate. Small non-zero counts below five are suppressed in the public views.\n\nData connection pending: Live retained-source measures are not enabled in this render."
+    "text": "Retained source monitoring\nCounts below, when enabled, come from t_sigizi_source_records after the deletion gate. Small non-zero counts below five are suppressed in the public views.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsource_table\nsource_label\nmonitoring_domain\nmonitoring_role\nsupports_anc\nsupports_inc\nsupports_pnc\nactive_record_count\nexcluded_record_count\nrecord_count_before_exclusion\nrecords_with_pregnancy_timing\nrecords_with_explicit_service_date\nrecords_with_location\nrecords_with_valid_primary_identifier\nearliest_evidence_date\nlatest_evidence_date\nhas_suppressed_small_count\n\n\n\n\nDAFTAR_IBU_HAMIL\nIbu hamil\nANC\nPregnancy registration/evidence; not an ANC encounter by itself\nTRUE\nFALSE\nFALSE\n13123\n3617\n16740\n13015\n0\n13120\n12825\n0023-04-12\n2029-06-25\nFALSE\n\n\nANC\nPemeriksaan ANC\nANC\nExplicit ANC examination evidence\nTRUE\nFALSE\nFALSE\n66147\n19917\n86064\n60435\n60437\n66146\n65154\n2024-03-20\n2026-09-18\nFALSE\n\n\nKOHORT_IBU\nKohort ibu\nINC\nINC and delivery evidence\nFALSE\nTRUE\nFALSE\n30196\n3869\n34065\n15974\n9359\n26398\n23503\n0006-08-19\n2033-08-17\nFALSE\n\n\nKOHORT_NIFAS\nKohort nifas\nINC / PNC\nINC evidence; PNC visits await a curated visit-level adapter\nFALSE\nTRUE\nTRUE\n29771\n3430\n33201\n20330\n13460\n29771\n28282\n0006-07-18\n2034-07-19\nFALSE\n\n\nDAFTAR_IBU\nDaftar ibu\nCONTEXT\nPregnancy registry and source-presence context\nFALSE\nFALSE\nFALSE\n33954\n4136\n38090\n28547\n0\n30509\n30723\n0001-01-01\n2027-03-11\nFALSE"
   },
   {
     "objectID": "sigizi.html#deleted-pregnancy-exclusion",
     "href": "sigizi.html#deleted-pregnancy-exclusion",
     "title": "SIGIZI monitoring",
     "section": "Deleted-pregnancy exclusion",
-    "text": "Deleted-pregnancy exclusion\nA SIGIZI clinical row is excluded only when it matches the same pregnancy in the deletion registry:\n\nMatching usable identifier plus an exactly matching pregnancy anchor; or\nwhen an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.\n\nThe source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.\n\nData connection pending: Live deletion-gate reconciliation is not enabled in this render."
+    "text": "Deleted-pregnancy exclusion\nA SIGIZI clinical row is excluded only when it matches the same pregnancy in the deletion registry:\n\nMatching usable identifier plus an exactly matching pregnancy anchor; or\nwhen an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.\n\nThe source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.\n\n\n\n\n\n\n\n\n\n\n\n\n\nexclusion_refreshed_at\nexclusion_rule_version\ndeletion_registry_count\nsource_rows_before_exclusion\nexcluded_source_record_count\nactive_source_record_count\nsource_records_without_pregnancy_anchor\nhas_suppressed_small_count\n\n\n\n\n2026-09-07 00:01:00\nSIGIZI_PREGNANCY_DELETION_V1\n7722\n208160\n34969\n173191\n34350\nFALSE"
   },
   {
     "objectID": "sigizi.html#denominator-rules",
@@ -109,28 +109,42 @@
     "href": "index.html#data-boundary",
     "title": "Overview",
     "section": "Data boundary",
-    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-06 23:30 WITA"
+    "text": "Data boundary\nThis site will read approved aggregate monitoring views derived from spheres-lombok-barat.kohort_bumil_v3. Cleaning, matching, deduplication, canonical pregnancy construction, and outcome definitions remain authoritative in the birth-outcome pipeline.\n\n\n\nSetting\nValue\n\n\n\n\nBigQuery project\nspheres-lombok-barat\n\n\nUpstream dataset\nkohort_bumil_v3\n\n\nProposed monitoring dataset\nsigizi_epus_monitoring\n\n\nBigQuery location\nasia-southeast2\n\n\nPublication mode\naggregate_only\n\n\nPage rendered\n2026-09-07 10:35 WITA"
   },
   {
     "objectID": "anc.html",
     "href": "anc.html",
     "title": "ANC monitoring",
     "section": "",
-    "text": "Data pending: ANC aggregate contracts must be verified before counts are published."
+    "text": "Aggregate ANC monitoring enabled. Documentation measures whether an answer was recorded; service completion measures whether the recorded answer indicates that the required service was performed."
   },
   {
-    "objectID": "anc.html#planned-measures",
-    "href": "anc.html#planned-measures",
+    "objectID": "anc.html#headline-indicators",
+    "href": "anc.html#headline-indicators",
     "title": "ANC monitoring",
-    "section": "Planned measures",
-    "text": "Planned measures\n\nSIGIZI and EPUS source-record volume by date and facility\nCanonical ANC encounters without EPUS cross-source double-counting\nK1–K6 coverage using pregnancy-level denominators\nFirst and latest ANC dates\nSame-day source overlap and unresolved facility discrepancies\nMissing visit date, facility, or pregnancy-assignment indicators"
+    "section": "Headline indicators",
+    "text": "Headline indicators\n\n\n\nANC encounters\n\n\n66,147\n\n\nRetained, deduplicated SIGIZI ANC source encounters\n\n\n\n\nDocumentation completeness\n\n\n97.0%\n\n\nRequired field opportunities with a recorded answer\n\n\n\n\nService completion\n\n\n79.9%\n\n\nRequired field opportunities indicating service performed\n\n\n\n\nFully documented encounters\n\n\n78.2%\n\n\nEncounters with every required answer recorded\n\n\n\n\nAll required services completed\n\n\n19.3%\n\n\nEncounters indicating completion of every required service\n\n\n\n\nPregnancy episode assignment\n\n\n86.6%\n\n\nEncounters linked to a canonical SIGIZI pregnancy episode\n\n\n\nDocumentation completeness is not the same as clinical service completion. For example, Tidak diperiksa is a recorded answer but does not indicate that the examination was performed."
   },
   {
-    "objectID": "anc.html#analytical-rule",
-    "href": "anc.html#analytical-rule",
+    "objectID": "anc.html#latest-monthly-component-results",
+    "href": "anc.html#latest-monthly-component-results",
     "title": "ANC monitoring",
-    "section": "Analytical rule",
-    "text": "Analytical rule\nRaw EPUS_ANC and EPUS_KUNJUNGAN_IBU_HAMIL rows are source-volume measures. They must not be added together to represent unique ANC visits."
+    "section": "Latest monthly component results",
+    "text": "Latest monthly component results\nDistrict aggregate for September 2026. Results are ordered by visit and lowest service completion.\n\n\n\n\n\n\n\n\n\n\nVisit\nComponent\nRequired\nDocumentation completeness\nService completion\n\n\n\n\nK1\nMid-upper arm circumference (LILA)\n24\n0.0%\n0.0%\n\n\nK1\nTetanus immunisation screening\n24\n100.0%\n58.3%\n\n\nK1\nUltrasound examination\n24\n100.0%\n58.3%\n\n\nK1\nMental-health screening\n24\n100.0%\n62.5%\n\n\nK1\nHaemoglobin test\n24\n100.0%\n66.7%\n\n\nK1\nHepatitis B test\n24\n100.0%\n66.7%\n\n\nK1\nHIV test\n24\n100.0%\n66.7%\n\n\nK1\nSyphilis test\n24\n100.0%\n66.7%\n\n\nK1\nBlood pressure status\n24\n100.0%\n100.0%\n\n\nK1\nHeight\n24\n100.0%\n100.0%\n\n\nK1\nPregnancy counselling\n24\n100.0%\n100.0%\n\n\nK1\nWeight\n24\n100.0%\n100.0%\n\n\nK1\nBlood group\nSuppressed\nSuppressed\nSuppressed\n\n\nK1\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK2\nMental-health screening\n37\n100.0%\n35.1%\n\n\nK2\nFetal heart rate (DJJ)\n37\n100.0%\n62.2%\n\n\nK2\nIron supplementation\n37\n100.0%\n70.3%\n\n\nK2\nBlood pressure status\n37\n100.0%\n100.0%\n\n\nK2\nFundal height\n37\n100.0%\n100.0%\n\n\nK2\nPregnancy counselling\n37\n100.0%\n100.0%\n\n\nK2\nWeight\n37\n100.0%\n100.0%\n\n\nK3\nMental-health screening\n54\n100.0%\n13.0%\n\n\nK3\nIron supplementation\n54\n100.0%\n87.0%\n\n\nK3\nBlood pressure status\n54\n100.0%\n100.0%\n\n\nK3\nFundal height\n54\n100.0%\n100.0%\n\n\nK3\nPregnancy counselling\n54\n100.0%\n100.0%\n\n\nK3\nWeight\n54\n100.0%\n100.0%\n\n\nK3\nFetal heart rate (DJJ)\nSuppressed\nSuppressed\nSuppressed\n\n\nK4\nMental-health screening\n18\n100.0%\n27.8%\n\n\nK4\nBlood pressure status\n18\n100.0%\n100.0%\n\n\nK4\nFetal heart rate (DJJ)\n18\n100.0%\n100.0%\n\n\nK4\nFundal height\n18\n100.0%\n100.0%\n\n\nK4\nWeight\n18\n100.0%\n100.0%\n\n\nK4\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK4\nPregnancy counselling\nSuppressed\nSuppressed\nSuppressed\n\n\nK5\nUltrasound examination\n21\n100.0%\n28.6%\n\n\nK5\nMental-health screening\n21\n100.0%\n33.3%\n\n\nK5\nBlood pressure status\n21\n100.0%\n100.0%\n\n\nK5\nFetal heart rate (DJJ)\n21\n100.0%\n100.0%\n\n\nK5\nFundal height\n21\n100.0%\n100.0%\n\n\nK5\nPregnancy counselling\n21\n100.0%\n100.0%\n\n\nK5\nWeight\n21\n100.0%\n100.0%\n\n\nK5\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK6\nBlood pressure status\n17\n100.0%\n100.0%\n\n\nK6\nFetal heart rate (DJJ)\n17\n100.0%\n100.0%\n\n\nK6\nFundal height\n17\n100.0%\n100.0%\n\n\nK6\nPregnancy counselling\n17\n100.0%\n100.0%\n\n\nK6\nWeight\n17\n100.0%\n100.0%\n\n\nK6\nIron supplementation\nSuppressed\nSuppressed\nSuppressed\n\n\nK6\nMental-health screening\nSuppressed\nSuppressed\nSuppressed\n\n\n\nThe SIGIZI blood-pressure field stores a categorical status such as normal, hypertensive, or hypotensive. It does not contain independently assessable systolic and diastolic measurements, so the monitoring contract reports one TEKANAN_DARAH component and retains this as a source-capture limitation."
+  },
+  {
+    "objectID": "anc.html#data-quality-indicators",
+    "href": "anc.html#data-quality-indicators",
+    "title": "ANC monitoring",
+    "section": "Data-quality indicators",
+    "text": "Data-quality indicators\n\n\n\nIndicator\nCount\nPercent of encounters\n\n\n\n\nMissing ANC date\n5,710\n8.6%\n\n\nUnclassified K visit\n60\n0.1%\n\n\nMissing pregnancy episode\n8,852\n13.4%\n\n\nGestational-age conflict\n21\n0.0%\n\n\nMultiple pregnancy-episode matches\n0\n0.0%\n\n\n\nMissing ANC dates remain in overall data-quality counts but cannot be assigned to a reporting month. Missing pregnancy assignments do not block encounter-level completeness; they do block pregnancy-level K1-K6 coverage."
+  },
+  {
+    "objectID": "anc.html#current-analytical-boundary",
+    "href": "anc.html#current-analytical-boundary",
+    "title": "ANC monitoring",
+    "section": "Current analytical boundary",
+    "text": "Current analytical boundary\n\nDAFTAR_IBU_HAMIL is pregnancy-registration evidence, not an ANC encounter.\nVisit type is assigned from recorded gestational age, falling back to ANC date minus HPHT where available.\nK1-K6 are non-overlapping gestational-age windows; they are not assigned by chronological row number.\nAnaemia, pre-eclampsia, and KEK management are conditional components and are excluded from the headline denominator until eligibility rules are approved.\nFacility-month results remain available in v_sigizi_anc_component_monitoring; the public overview uses a district rollup calculated before small-cell suppression."
   },
   {
     "objectID": "pnc.html",

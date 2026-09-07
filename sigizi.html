@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,6 +84,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">SIGIZI–EPUS Monitoring</span>
     </a>
@@ -268,16 +271,200 @@ ul.task-list li input[type="checkbox"] {
 <p><code>KOHORT_NIFAS</code> confirms source availability. KF1-KF4 coverage is intentionally pending until a curated PNC visit date and visit-stage contract is approved.</p>
 </section>
 </div>
-<div class="status-banner">
-<p><strong>Data connection pending:</strong> Live stage measures are not enabled in this render. The view contract is ready for BigQuery deployment.</p>
-</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 34%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">monitoring_stage</th>
+<th style="text-align: right;">source_record_count</th>
+<th style="text-align: right;">pregnancy_evidence_count</th>
+<th style="text-align: right;">explicit_event_pregnancy_count</th>
+<th style="text-align: left;">measure_status</th>
+<th style="text-align: left;">denominator_definition</th>
+<th style="text-align: left;">has_suppressed_small_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ANC</td>
+<td style="text-align: right;">79270</td>
+<td style="text-align: right;">15239</td>
+<td style="text-align: right;">12275</td>
+<td style="text-align: left;">SOURCE_AND_PREGNANCY_READY</td>
+<td style="text-align: left;">DAFTAR_IBU_HAMIL + ANC retained records; canonical SIGIZI pregnancy episodes</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">INC</td>
+<td style="text-align: right;">59967</td>
+<td style="text-align: right;">25396</td>
+<td style="text-align: right;">7338</td>
+<td style="text-align: left;">SOURCE_AND_PREGNANCY_READY</td>
+<td style="text-align: left;">KOHORT_IBU + KOHORT_NIFAS retained records; pregnancies with delivery evidence</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PNC</td>
+<td style="text-align: right;">29771</td>
+<td style="text-align: right;">19647</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">PNC_VISIT_ADAPTER_REQUIRED</td>
+<td style="text-align: left;">KOHORT_NIFAS source presence only; KF1-KF4 is not yet defined</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="retained-source-monitoring" class="level2">
 <h2 class="anchored" data-anchor-id="retained-source-monitoring">Retained source monitoring</h2>
 <p>Counts below, when enabled, come from <code>t_sigizi_source_records</code> after the deletion gate. Small non-zero counts below five are suppressed in the public views.</p>
-<div class="status-banner">
-<p><strong>Data connection pending:</strong> Live retained-source measures are not enabled in this render.</p>
-</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 15%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 9%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">source_table</th>
+<th style="text-align: left;">source_label</th>
+<th style="text-align: left;">monitoring_domain</th>
+<th style="text-align: left;">monitoring_role</th>
+<th style="text-align: left;">supports_anc</th>
+<th style="text-align: left;">supports_inc</th>
+<th style="text-align: left;">supports_pnc</th>
+<th style="text-align: right;">active_record_count</th>
+<th style="text-align: right;">excluded_record_count</th>
+<th style="text-align: right;">record_count_before_exclusion</th>
+<th style="text-align: right;">records_with_pregnancy_timing</th>
+<th style="text-align: right;">records_with_explicit_service_date</th>
+<th style="text-align: right;">records_with_location</th>
+<th style="text-align: right;">records_with_valid_primary_identifier</th>
+<th style="text-align: left;">earliest_evidence_date</th>
+<th style="text-align: left;">latest_evidence_date</th>
+<th style="text-align: left;">has_suppressed_small_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DAFTAR_IBU_HAMIL</td>
+<td style="text-align: left;">Ibu hamil</td>
+<td style="text-align: left;">ANC</td>
+<td style="text-align: left;">Pregnancy registration/evidence; not an ANC encounter by itself</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">13123</td>
+<td style="text-align: right;">3617</td>
+<td style="text-align: right;">16740</td>
+<td style="text-align: right;">13015</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13120</td>
+<td style="text-align: right;">12825</td>
+<td style="text-align: left;">0023-04-12</td>
+<td style="text-align: left;">2029-06-25</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANC</td>
+<td style="text-align: left;">Pemeriksaan ANC</td>
+<td style="text-align: left;">ANC</td>
+<td style="text-align: left;">Explicit ANC examination evidence</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">66147</td>
+<td style="text-align: right;">19917</td>
+<td style="text-align: right;">86064</td>
+<td style="text-align: right;">60435</td>
+<td style="text-align: right;">60437</td>
+<td style="text-align: right;">66146</td>
+<td style="text-align: right;">65154</td>
+<td style="text-align: left;">2024-03-20</td>
+<td style="text-align: left;">2026-09-18</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">KOHORT_IBU</td>
+<td style="text-align: left;">Kohort ibu</td>
+<td style="text-align: left;">INC</td>
+<td style="text-align: left;">INC and delivery evidence</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">30196</td>
+<td style="text-align: right;">3869</td>
+<td style="text-align: right;">34065</td>
+<td style="text-align: right;">15974</td>
+<td style="text-align: right;">9359</td>
+<td style="text-align: right;">26398</td>
+<td style="text-align: right;">23503</td>
+<td style="text-align: left;">0006-08-19</td>
+<td style="text-align: left;">2033-08-17</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KOHORT_NIFAS</td>
+<td style="text-align: left;">Kohort nifas</td>
+<td style="text-align: left;">INC / PNC</td>
+<td style="text-align: left;">INC evidence; PNC visits await a curated visit-level adapter</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">29771</td>
+<td style="text-align: right;">3430</td>
+<td style="text-align: right;">33201</td>
+<td style="text-align: right;">20330</td>
+<td style="text-align: right;">13460</td>
+<td style="text-align: right;">29771</td>
+<td style="text-align: right;">28282</td>
+<td style="text-align: left;">0006-07-18</td>
+<td style="text-align: left;">2034-07-19</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DAFTAR_IBU</td>
+<td style="text-align: left;">Daftar ibu</td>
+<td style="text-align: left;">CONTEXT</td>
+<td style="text-align: left;">Pregnancy registry and source-presence context</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">33954</td>
+<td style="text-align: right;">4136</td>
+<td style="text-align: right;">38090</td>
+<td style="text-align: right;">28547</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">30509</td>
+<td style="text-align: right;">30723</td>
+<td style="text-align: left;">0001-01-01</td>
+<td style="text-align: left;">2027-03-11</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="deleted-pregnancy-exclusion" class="level2">
 <h2 class="anchored" data-anchor-id="deleted-pregnancy-exclusion">Deleted-pregnancy exclusion</h2>
@@ -287,9 +474,42 @@ ul.task-list li input[type="checkbox"] {
 <li>when an identifier is unavailable on either side, exact normalized name, maternal birth date, and pregnancy anchor.</li>
 </ol>
 <p>The source anchor is HPHT, falling back to HPL minus 280 days only when HPHT is missing. Conflicting usable identifiers block the name-based fallback. A later pregnancy for the same mother remains eligible, and independent EPUS or hospital evidence is not removed.</p>
-<div class="status-banner">
-<p><strong>Data connection pending:</strong> Live deletion-gate reconciliation is not enabled in this render.</p>
-</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">exclusion_refreshed_at</th>
+<th style="text-align: left;">exclusion_rule_version</th>
+<th style="text-align: right;">deletion_registry_count</th>
+<th style="text-align: right;">source_rows_before_exclusion</th>
+<th style="text-align: right;">excluded_source_record_count</th>
+<th style="text-align: right;">active_source_record_count</th>
+<th style="text-align: right;">source_records_without_pregnancy_anchor</th>
+<th style="text-align: left;">has_suppressed_small_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2026-09-07 00:01:00</td>
+<td style="text-align: left;">SIGIZI_PREGNANCY_DELETION_V1</td>
+<td style="text-align: right;">7722</td>
+<td style="text-align: right;">208160</td>
+<td style="text-align: right;">34969</td>
+<td style="text-align: right;">173191</td>
+<td style="text-align: right;">34350</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="denominator-rules" class="level2">
 <h2 class="anchored" data-anchor-id="denominator-rules">Denominator rules</h2>
@@ -358,13 +578,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
